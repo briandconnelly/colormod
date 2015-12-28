@@ -10,7 +10,7 @@ colRGB(color)
 \item{color}{The color}
 }
 \value{
-An object of class “RGB” which inherits from class “color”.
+An object of class RGB.
 }
 \description{
 Convert a hex or named color to a colorspace RGB object

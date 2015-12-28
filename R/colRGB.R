@@ -2,7 +2,7 @@
 #'
 #' @param color The color
 #'
-#' @return An object of class “RGB” which inherits from class “color”.
+#' @return An object of class RGB.
 #' @note Alpha values are ignored
 #' @seealso \code{\link{RGB}}
 #' @importFrom colorspace sRGB
