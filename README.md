@@ -1,5 +1,6 @@
 # colormod
 
+[![Travis-CI Build Status](https://travis-ci.org/briandconnelly/colormod.svg?branch=master)](https://travis-ci.org/briandconnelly/colormod)
 [![Coverage Status](https://img.shields.io/codecov/c/github/briandconnelly/colormod/master.svg)](https://codecov.io/github/briandconnelly/colormod?branch=master)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/colormod)](http://cran.r-project.org/package=colormod)
 
