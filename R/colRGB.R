@@ -1,0 +1,17 @@
+#' Convert a hex or named color to a colorspace RGB object
+#'
+#' @param color The color
+#'
+#' @return An object of class “RGB” which inherits from class “color”.
+#' @note Alpha values are ignored
+#' @seealso \code{\link{RGB}}
+#' @importFrom colorspace sRGB
+#' @importFrom grDevices col2rgb
+#' @export
+#'
+#' @examples
+colRGB <- function(color) {
+    assert_that(is.color(color))
+    x <- col2rgb(color) / 255
+    sRGB(R = x[['red', 1]], G = x[['green', 1]], B = x[['blue', 1]])
+}
