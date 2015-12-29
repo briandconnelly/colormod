@@ -32,7 +32,7 @@ hue <- function(color) {
 }
 
 
-#' @description \code{brightness} returns a color's brightness in HSV space [0,1]
+#' @description \code{brightness} returns a color's brightness (value) in HSV space [0,1]
 #' @rdname properties
 #' @importFrom assertthat assert_that
 #' @importFrom colorspace coords

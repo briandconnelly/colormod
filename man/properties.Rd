@@ -28,11 +28,11 @@ blue(color)
 The color's property value
 }
 \description{
-\code{saturation} returns a color's saturation value [0,1]
+\code{saturation} returns a color's saturation value in HSV space [0,1]
 
-\code{hue} returns a color's hue [0,360]
+\code{hue} returns a color's hue in HSV space [0,360]
 
-\code{brightness} returns a color's brightness [0,1]
+\code{brightness} returns a color's brightness (value) in HSV space [0,1]
 
 \code{red} returns a color's red level [0,1]
 
