@@ -19,7 +19,7 @@ saturation <- function(color) {
 }
 
 
-#' @description \code{hue} returns a color's hue in HSV space [0,360]
+#' @description \code{hue} returns a color's hue in HSV space [0,360)
 #' @rdname properties
 #' @importFrom assertthat assert_that
 #' @importFrom colorspace coords

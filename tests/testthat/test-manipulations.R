@@ -25,9 +25,21 @@ test_that("brightness adjustments work properly", {
 test_that("saturation adjustments work properly", {
     expect_equal(adjust_saturation(color = medpurple3, amount = 0), medpurple3)
     expect_equal(adjust_saturation(color = medpurple3, amount = 1), '#4300CD')
-    # TODO: saturate
-    # TODO: desaturate
+    expect_equal(desaturate(color = "#F00000", amount = 1), "#F0F0F0")
+    expect_equal(saturate(color = "#F0F0F0", amount = 1), "#F00000")
     expect_equal(greyscale(color = '#CCCCCC'), '#CCCCCC')
     expect_equal(greyscale(color = medpurple3), '#CDCDCD')
     expect_equal(grayscale(color = medpurple3), '#CDCDCD')
+})
+
+test_that("hue adjustments work properly", {
+    expect_equal(adjust_hue(color = "#807040", amount = 0, wrap = TRUE),
+                 "#807040")
+    expect_equal(adjust_hue(color = "#807040", amount = 180, wrap = TRUE),
+                 "#405080")
+    expect_equal(adjust_hue(color = "#405080", amount = 180, wrap = TRUE),
+                 "#807040")
+    expect_equal(complement(color = "#607080", wrap = TRUE), "#807060")
+    expect_equal(complement(color = "#807060", wrap = TRUE), "#607080")
+    expect_equal(complement(color = "#FFFFFF", wrap = TRUE), "#FFFFFF")
 })

@@ -30,7 +30,7 @@ The color's property value
 \description{
 \code{saturation} returns a color's saturation value in HSV space [0,1]
 
-\code{hue} returns a color's hue in HSV space [0,360]
+\code{hue} returns a color's hue in HSV space [0,360)
 
 \code{brightness} returns a color's brightness (value) in HSV space [0,1]
 
