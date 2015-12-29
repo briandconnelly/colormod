@@ -21,3 +21,14 @@ test_that("brightness adjustments work properly", {
     expect_equal(darken(color = 'white', 1), '#000000')
     expect_equal(darken(color = '#000000', 1), '#000000')
 })
+
+test_that("saturation adjustments work properly", {
+    expect_equal(adjust_saturation(color = medpurple3, amount = 0), medpurple3)
+    expect_equal(adjust_saturation(color = medpurple3, amount = 1), '#4300CD')
+    # TODO: more adjust_saturation
+    # TODO: saturate
+    # TODO: desaturate
+    expect_equal(greyscale(color = '#CCCCCC'), '#CCCCCC')
+    expect_equal(greyscale(color = medpurple3), '#CDCDCD')
+    expect_equal(grayscale(color = medpurple3), '#CDCDCD')
+})
