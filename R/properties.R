@@ -1,0 +1,81 @@
+#' @title View a color's properties
+#' @rdname properties
+#' @description \code{saturation} returns a color's saturation value in HSV space [0,1]
+#'
+#' @param color The color
+#' @return The color's property value
+#' @importFrom assertthat assert_that
+#' @importFrom colorspace coords
+#' @importFrom colorspace HSV
+#' @export
+#'
+#' @examples
+#' saturation('orange')
+#' 
+saturation <- function(color) {
+    assert_that(is.color(color))
+    hsv_vals <- coords(as(colRGB(color), 'HSV'))
+    hsv_vals[[1, 'S']]
+}
+
+
+#' @description \code{hue} returns a color's hue in HSV space [0,360]
+#' @rdname properties
+#' @importFrom assertthat assert_that
+#' @importFrom colorspace coords
+#' @importFrom colorspace HSV
+#' @export
+hue <- function(color) {
+    assert_that(is.color(color))
+    hsv_vals <- coords(as(colRGB(color), 'HSV'))
+    hsv_vals[[1, 'H']]   
+}
+
+
+#' @description \code{brightness} returns a color's brightness in HSV space [0,1]
+#' @rdname properties
+#' @importFrom assertthat assert_that
+#' @importFrom colorspace coords
+#' @importFrom colorspace HSV
+#' @export
+brightness <- function(color) {
+    assert_that(is.color(color))
+    hsv_vals <- coords(as(colRGB(color), 'HSV'))
+    hsv_vals[[1, 'V']]   
+}
+
+
+#' @description \code{red} returns a color's red level [0,1]
+#' @rdname properties
+#' @importFrom assertthat assert_that
+#' @importFrom colorspace coords
+#' @export
+red <- function(color) {
+    assert_that(is.color(color))
+    rgb_vals <- coords(colRGB(color))
+    rgb_vals[[1, 'R']]   
+}
+
+
+#' @description \code{green} returns a color's green level [0,1]
+#' @rdname properties
+#' @importFrom assertthat assert_that
+#' @importFrom colorspace coords
+#' @export
+green <- function(color) {
+    assert_that(is.color(color))
+    rgb_vals <- coords(colRGB(color))
+    rgb_vals[[1, 'G']]   
+}
+
+
+#' @description \code{red} returns a color's blue level [0,1]
+#' @rdname properties
+#' @importFrom assertthat assert_that
+#' @importFrom colorspace coords
+#' @export
+blue <- function(color) {
+    assert_that(is.color(color))
+    rgb_vals <- coords(colRGB(color))
+    rgb_vals[[1, 'B']]   
+}
