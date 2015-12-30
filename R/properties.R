@@ -14,8 +14,8 @@
 #' 
 saturation <- function(color) {
     assert_that(is.color(color))
-    hsv_vals <- coords(as(colRGB(color), 'HSV'))
-    hsv_vals[[1, 'S']]
+    ccoords <- coords(colHSV(color))
+    ccoords[[1, 'S']]
 }
 
 
@@ -27,8 +27,8 @@ saturation <- function(color) {
 #' @export
 hue <- function(color) {
     assert_that(is.color(color))
-    hsv_vals <- coords(as(colRGB(color), 'HSV'))
-    hsv_vals[[1, 'H']]   
+    ccoords <- coords(colHSV(color))
+    ccoords[[1, 'H']]   
 }
 
 
@@ -40,10 +40,22 @@ hue <- function(color) {
 #' @export
 brightness <- function(color) {
     assert_that(is.color(color))
-    hsv_vals <- coords(as(colRGB(color), 'HSV'))
-    hsv_vals[[1, 'V']]   
+    ccoords <- coords(colHSV(color))
+    ccoords[[1, 'V']]   
 }
 
+
+#' @description \code{lightness} returns a color's brightness (value) in HSL space [0,1]
+#' @rdname properties
+#' @importFrom assertthat assert_that
+#' @importFrom colorspace coords
+#' @importFrom colorspace HLS
+#' @export
+lightness <- function(color) {
+    assert_that(is.color(color))
+    hls_vals <- coords(colHLS(color))
+    hls_vals[[1, 'L']]   
+}
 
 #' @description \code{red} returns a color's red level [0,1]
 #' @rdname properties

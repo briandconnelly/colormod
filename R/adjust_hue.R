@@ -12,7 +12,6 @@
 #' @importFrom assertthat assert_that
 #' @importFrom colorspace coords
 #' @importFrom colorspace hex
-#' @importFrom colorspace HSV
 #' @export
 #'
 #' @examples
@@ -22,12 +21,12 @@
 adjust_hue <- function(color, amount, wrap = TRUE) {
     assert_that(is.color(color))
 
-    hsv_vals <- coords(as(colRGB(color), 'HSV'))
+    ccoords <- coords(colHSV(color))
     
-    new_h <- hsv_vals[[1,'H']] + amount
+    new_h <- ccoords[[1,'H']] + amount
     if (wrap) new_h <- new_h %% 360
     
-    hex(HSV(H = new_h, S = hsv_vals[[1,'S']], V = hsv_vals[[1, 'V']]))
+    hex(HSV(H = new_h, S = ccoords[[1,'S']], V = ccoords[[1, 'V']]))
 }
 
 #' @description \code{complement} returns the complement of the color by

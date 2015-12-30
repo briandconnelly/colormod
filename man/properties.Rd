@@ -5,6 +5,7 @@
 \alias{brightness}
 \alias{green}
 \alias{hue}
+\alias{lightness}
 \alias{red}
 \alias{saturation}
 \title{View a color's properties}
@@ -14,6 +15,8 @@ saturation(color)
 hue(color)
 
 brightness(color)
+
+lightness(color)
 
 red(color)
 
@@ -33,6 +36,8 @@ The color's property value
 \code{hue} returns a color's hue in HSV space [0,360)
 
 \code{brightness} returns a color's brightness (value) in HSV space [0,1]
+
+\code{lightness} returns a color's brightness (value) in HSL space [0,1]
 
 \code{red} returns a color's red level [0,1]
 

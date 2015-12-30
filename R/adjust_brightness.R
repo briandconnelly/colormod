@@ -11,7 +11,6 @@
 #' @importFrom assertthat assert_that
 #' @importFrom colorspace coords
 #' @importFrom colorspace hex
-#' @importFrom colorspace HSV
 #' @export
 #'
 #' @examples
@@ -21,9 +20,9 @@ adjust_brightness <- function(color, amount) {
     assert_that(is.color(color))
     assert_that(is.numeric(amount), amount >= -1.0, amount <= 1.0)
     
-    hsv_vals <- coords(as(colRGB(color), 'HSV'))
-    hex(HSV(H = hsv_vals[[1,'H']], S = hsv_vals[[1,'S']],
-            V = max(0, min(1, hsv_vals[[1,'V']] + amount))))
+    ccoords <- coords(colHSV(color))
+    hex(HSV(H = ccoords[[1,'H']], S = ccoords[[1,'S']],
+            V = max(0, min(1, ccoords[[1,'V']] + amount))))
 }
 
 #' @description \code{lighten} increases the brightness of the color by the
