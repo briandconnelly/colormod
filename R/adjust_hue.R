@@ -16,7 +16,7 @@
 #' @export
 #'
 #' @examples
-#' adjust_hue("#807040")
+#' adjust_hue("#807040", amount = 45)
 #' complement("#607080")
 #' 
 adjust_hue <- function(color, amount, wrap = TRUE) {

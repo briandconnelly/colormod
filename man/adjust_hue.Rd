@@ -28,7 +28,7 @@ space. The \code{wrap} parameter, enabled by default, allows the hue value to
 adjusting the color's hue by 180 degrees in HSV space
 }
 \examples{
-adjust_hue("#807040")
+adjust_hue("#807040", amount = 45)
 complement("#607080")
 
 }
