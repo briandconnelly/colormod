@@ -4,8 +4,8 @@ Version: 0.1.0
 Authors@R: c(person(family="Connelly", given="Brian D.",
     email="bdc@bconnelly.net", role=c("aut", "cre")))
 Description: colormod provides simple and consistent functions for extracting
-    and manipulating individual components of colors. With a focus on
-    portability, colormod works primarily with hex triplets.
+    and manipulating individual components of colors using 'colorspace'. With a
+    focus on portability, colormod works primarily with hex triplets.
 Depends: 
     R (>= 3.2)
 Imports: 

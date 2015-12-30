@@ -6,7 +6,7 @@
 
 Colormod makes manipulating colors easy.
 
-Inspired by tools like [SASS](http://sass-lang.com) and [Less](http://lesscss.org), colormod uses packages like [colorspace](http://cran.r-project.org/web/packages/colorspace/index.html) to convert, extract, and manipulate individual properties of colors. For portability, colormod works with and produces colors as hexadecimal strings (although R's named colors are also supported).
+Inspired by tools like [SASS](http://sass-lang.com) and [Less](http://lesscss.org), colormod provides wrappers using [colorspace](http://cran.r-project.org/web/packages/colorspace/index.html) to convert, extract, and manipulate individual properties of colors. For portability, colormod primarily works with and produces colors as hexadecimal strings (although R's named colors are also supported).
 
 Let's say you wanted to make your <span style="background-color: #8c613f;">orange</span> both <span style="background-color: #8C5123;">richer</span> (more saturated) and also a little <span style="background-color: #D97D36;">brighter</span>:
 
