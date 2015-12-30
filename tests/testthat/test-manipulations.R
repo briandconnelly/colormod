@@ -43,3 +43,15 @@ test_that("hue adjustments work properly", {
     expect_equal(complement(color = "#807060", wrap = TRUE), "#607080")
     expect_equal(complement(color = "#FFFFFF", wrap = TRUE), "#FFFFFF")
 })
+
+test_that("RGB adjustments work properly", {
+    expect_equal(adjust_rgb(color = "#000000",
+                            Ramount = 0, Gamount = 0, Bamount = 0),
+                 "#000000")
+    expect_equal(adjust_rgb(color = "#FFFFFF",
+                            Ramount = 1, Gamount = 1, Bamount = 1),
+                 "#FFFFFF")
+    expect_equal(adjust_red(color = "#000000", amount = 1), "#FF0000")
+    expect_equal(adjust_green(color = "#000000", amount = 1), "#00FF00")
+    expect_equal(adjust_blue(color = "#000000", amount = 1), "#0000FF")
+})

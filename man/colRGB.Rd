@@ -18,6 +18,10 @@ Convert a hex or named color to a colorspace RGB object
 \note{
 Alpha values are ignored
 }
+\examples{
+colRGB("orange")
+
+}
 \seealso{
 \code{\link{RGB}}
 }

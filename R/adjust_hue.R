@@ -17,7 +17,7 @@
 #'
 #' @examples
 #' adjust_hue("#807040")
-#' complement("#607080)
+#' complement("#607080")
 #' 
 adjust_hue <- function(color, amount, wrap = TRUE) {
     assert_that(is.color(color))
@@ -25,7 +25,7 @@ adjust_hue <- function(color, amount, wrap = TRUE) {
     hsv_vals <- coords(as(colRGB(color), 'HSV'))
     
     new_h <- hsv_vals[[1,'H']] + amount
-    if (wrap) new_h <- mod(new_h, 360)
+    if (wrap) new_h <- new_h %% 360
     
     hex(HSV(H = new_h, S = hsv_vals[[1,'S']], V = hsv_vals[[1, 'V']]))
 }

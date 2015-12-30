@@ -19,9 +19,6 @@ mix <- function(color1, color2, weight = 0.5) {
     assert_that(is.color(color1), is.color(color2))
     assert_that(is.numeric(weight), weight >= 0, weight <= 1.0)
 
-    # TODO: get RGB for color1, color2 - accept named colors
-    c1 <- colRGB(color1)
-    c2 <- colRGB(color2)
-    # - mixcolor doesn't support vectors, so could use lapply or something.
-    hex(mixcolor(alpha = weight, color1 = c1, color2 = c2))
+    hex(mixcolor(alpha = weight, color1 = colRGB(color1),
+                 color2 = colRGB(color2)))
 }

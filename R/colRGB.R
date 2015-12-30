@@ -10,6 +10,8 @@
 #' @export
 #'
 #' @examples
+#' colRGB("orange")
+#'
 colRGB <- function(color) {
     assert_that(is.color(color))
     x <- col2rgb(color) / 255
