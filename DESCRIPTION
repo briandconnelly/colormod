@@ -1,10 +1,13 @@
 Package: colormod
-Title: Manipulate colors
+Title: Simple tools for manipulating colors
 Version: 0.1.0
-Authors@R: c(person(family="Connelly", given="Brian D.", email="bdc@bconnelly.net", role=c("aut", "cre")))
-Description: colormod provides functions for easily manipulating and mixing colors.
+Authors@R: c(person(family="Connelly", given="Brian D.",
+    email="bdc@bconnelly.net", role=c("aut", "cre")))
+Description: colormod provides simple and consistent functions for extracting
+    and manipulating individual components of colors. With a focus on
+    portability, colormod works primarily with hex triplets.
 Depends: 
-    R (>= 3.2.3)
+    R (>= 3.2)
 Imports: 
     assertthat (>= 0.1),
     colorspace (>= 1.2-6),
