@@ -4,7 +4,7 @@
 #'
 #' @return An object of class RGB.
 #' @note Alpha values are ignored
-#' @seealso \code{\link{RGB}}
+#' @seealso \code{\link[colorspace]{RGB}}
 #' @importFrom assertthat assert_that
 #' @importFrom colorspace sRGB
 #' @importFrom grDevices col2rgb

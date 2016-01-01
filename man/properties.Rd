@@ -10,9 +10,9 @@
 \alias{saturation}
 \title{View a color's properties}
 \usage{
-saturation(color)
+saturation(color, space = "HSV")
 
-hue(color)
+hue(color, space = "HSV")
 
 brightness(color)
 
@@ -26,14 +26,16 @@ blue(color)
 }
 \arguments{
 \item{color}{The color}
+
+\item{space}{The colorspace, HSV (default), HSL, or HLS}
 }
 \value{
 The color's property value
 }
 \description{
-\code{saturation} returns a color's saturation value in HSV space [0,1]
+\code{saturation} returns a color's saturation [0,1]
 
-\code{hue} returns a color's hue in HSV space [0,360)
+\code{hue} returns a color's hue [0,360)
 
 \code{brightness} returns a color's brightness (value) in HSV space [0,1]
 

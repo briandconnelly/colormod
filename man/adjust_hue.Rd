@@ -5,9 +5,9 @@
 \alias{complement}
 \title{Adjust a color's hue}
 \usage{
-adjust_hue(color, amount, wrap = TRUE)
+adjust_hue(color, amount, wrap = TRUE, space = "HSV")
 
-complement(color, wrap = TRUE)
+complement(color, wrap = TRUE, space = "HSV")
 }
 \arguments{
 \item{color}{The color}
@@ -15,6 +15,8 @@ complement(color, wrap = TRUE)
 \item{amount}{The amount, in degrees}
 
 \item{wrap}{Whether or not the resulting hue should be constrained to [0,360)}
+
+\item{space}{The colorspace, HSV (default), HSL, or HLS}
 }
 \value{
 The adjusted color as a hexadecimal string

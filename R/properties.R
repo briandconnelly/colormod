@@ -1,33 +1,36 @@
 #' @title View a color's properties
 #' @rdname properties
-#' @description \code{saturation} returns a color's saturation value in HSV space [0,1]
+#' @description \code{saturation} returns a color's saturation [0,1]
 #'
 #' @param color The color
+#' @param space The colorspace, HSV (default), HSL, or HLS
 #' @return The color's property value
 #' @importFrom assertthat assert_that
 #' @importFrom colorspace coords
-#' @importFrom colorspace HSV
 #' @export
 #'
 #' @examples
 #' saturation('orange')
 #' 
-saturation <- function(color) {
+saturation <- function(color, space = "HSV") {
     assert_that(is.color(color))
-    ccoords <- coords(colHSV(color))
+    assert_that(space %in% c("HSV", "HSL", "HLS"))
+    if (space == "HSL" | space == "HLS") ccoords <- coords(colHLS(color))
+    else ccoords <- coords(colHSV(color))
     ccoords[[1, 'S']]
 }
 
 
-#' @description \code{hue} returns a color's hue in HSV space [0,360)
+#' @description \code{hue} returns a color's hue [0,360)
 #' @rdname properties
 #' @importFrom assertthat assert_that
 #' @importFrom colorspace coords
-#' @importFrom colorspace HSV
 #' @export
-hue <- function(color) {
+hue <- function(color, space = "HSV") {
     assert_that(is.color(color))
-    ccoords <- coords(colHSV(color))
+    assert_that(space %in% c("HSV", "HSL", "HLS"))
+    if (space == "HSL" | space == "HLS") ccoords <- coords(colHLS(color))
+    else ccoords <- coords(colHSV(color))
     ccoords[[1, 'H']]   
 }
 

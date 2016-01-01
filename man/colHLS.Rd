@@ -23,6 +23,6 @@ colHLS("orange")
 
 }
 \seealso{
-\code{\link{HLS}}
+\code{\link[colorspace]{HLS}}
 }
 

@@ -23,6 +23,6 @@ colRGB("orange")
 
 }
 \seealso{
-\code{\link{RGB}}
+\code{\link[colorspace]{RGB}}
 }
 

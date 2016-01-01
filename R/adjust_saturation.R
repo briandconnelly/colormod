@@ -5,9 +5,9 @@
 #'
 #' @param color The color
 #' @param amount A value between -1 and 1.
+#' @param space The colorspace, HSV (default), HSL, or HLS
 #'
 #' @return The adjusted color as a hexadecimal string
-#' @note Adjustments are made in the HSV colorspace
 #' @importFrom assertthat assert_that
 #' @importFrom colorspace coords
 #' @importFrom colorspace hex
@@ -16,7 +16,7 @@
 #' @examples
 #' desaturate('mediumpurple3', 0.1)
 #' 
-adjust_saturation <- function(color, amount) {
+adjust_saturation <- function(color, amount, space = "HSV") {
     assert_that(is.color(color))
     assert_that(is.numeric(amount), amount >= -1.0, amount <= 1.0)
     
@@ -31,22 +31,26 @@ adjust_saturation <- function(color, amount) {
 #' given amount
 #' @rdname adjust_saturation
 #' @export
-saturate <- function(color, amount) adjust_saturation(color = color,
-                                                      amount = amount)
+saturate <- function(color, amount, space = "HSV") {
+    adjust_saturation(color = color, amount = amount, space = space)
+}
 
 
 #' @description \code{desaturate} decreases the saturation of the color by the
 #' given amount
 #' @rdname adjust_saturation
 #' @export
-desaturate <- function(color, amount) adjust_saturation(color = color,
-                                                        amount = -1 * amount)
+desaturate <- function(color, amount, space = "HSV") {
+    adjust_saturation(color = color, amount = -1 * amount, space = space)
+}
 
 #' @description \code{greyscale} fully desaturates the color
 #' @rdname adjust_saturation
 #' @aliases grayscale
 #' @export
-greyscale <- function(color) adjust_saturation(color = color, amount = -1)
+greyscale <- function(color, space) {
+    adjust_saturation(color = color, amount = -1, space = space)
+}
 
 #' @export
 grayscale <- greyscale

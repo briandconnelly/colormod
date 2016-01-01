@@ -2,9 +2,15 @@
 % Please edit documentation in R/mix.R
 \name{mix}
 \alias{mix}
-\title{Add two colors together}
+\alias{shade}
+\alias{tint}
+\title{Color mixing}
 \usage{
 mix(color1, color2, weight = 0.5)
+
+shade(color, amount)
+
+tint(color, amount)
 }
 \arguments{
 \item{color1}{The first color}
@@ -17,7 +23,11 @@ mix(color1, color2, weight = 0.5)
 The mixed color as a hexadecimal string
 }
 \description{
-Add two colors together
+\code{mix} mixes two colors together
+
+\code{shade} shades a given color, mixing it with black
+
+\code{tint} tints a given color, mixing it with white
 }
 \examples{
 mix('#FFFFFF', '#0000FF', 0.2)

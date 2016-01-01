@@ -8,18 +8,20 @@
 \alias{saturate}
 \title{Adjust a color's saturation}
 \usage{
-adjust_saturation(color, amount)
+adjust_saturation(color, amount, space = "HSV")
 
-saturate(color, amount)
+saturate(color, amount, space = "HSV")
 
-desaturate(color, amount)
+desaturate(color, amount, space = "HSV")
 
-greyscale(color)
+greyscale(color, space)
 }
 \arguments{
 \item{color}{The color}
 
 \item{amount}{A value between -1 and 1.}
+
+\item{space}{The colorspace, HSV (default), HSL, or HLS}
 }
 \value{
 The adjusted color as a hexadecimal string
@@ -35,9 +37,6 @@ given amount
 given amount
 
 \code{greyscale} fully desaturates the color
-}
-\note{
-Adjustments are made in the HSV colorspace
 }
 \examples{
 desaturate('mediumpurple3', 0.1)

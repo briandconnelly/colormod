@@ -4,7 +4,7 @@
 #'
 #' @return An object of class RGB.
 #' @note Alpha values are ignored
-#' @seealso \code{\link{HSV}}
+#' @seealso \code{\link[colorspace]{HSV}}
 #' @importFrom assertthat assert_that
 #' @importFrom colorspace HSV
 #' @importFrom colorspace RGB

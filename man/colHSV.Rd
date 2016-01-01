@@ -23,6 +23,6 @@ colHSV("orange")
 
 }
 \seealso{
-\code{\link{HSV}}
+\code{\link[colorspace]{HSV}}
 }
 
