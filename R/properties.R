@@ -10,15 +10,8 @@
 #' @export
 #'
 #' @examples
-#' saturation('orange')
+#' hue('orange')
 #' 
-saturation <- function(color, space = "HSV") {
-    assert_that(is.color(color))
-    assert_that(space %in% c("HSV", "HSL", "HLS"))
-    if (space == "HSL" | space == "HLS") ccoords <- coords(colHLS(color))
-    else ccoords <- coords(colHSV(color))
-    ccoords[[1, "S"]]
-}
 
 
 #' @description \code{hue} returns a color's hue [0,360)

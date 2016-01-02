@@ -1,6 +1,7 @@
 #' @title Adjust color properties in HSV space
 #' 
-#' @description \code{adjust_hsv} adjusts the properties of colors in HSV space (hue, saturation, and value/brightness)
+#' @description \code{adjust_hsv} adjusts the properties of colors in HSV space
+#' (hue, saturation, and value/brightness)
 #'
 #' @param color One or more colors, either hex or named
 #' @param Hamount Amount to adjust hue (default: 0)
@@ -32,13 +33,6 @@ adjust_hsv <- function(color, Hamount = 0, Samount = 0, Vamount = 0,
     assert_that(is.color(color))
     assert_that(is.numeric(Hamount), is.numeric(Samount), is.numeric(Vamount))
 
-    if (length(Hamount) > 1) assert_that(are_equal(length(color),
-                                                   length(Hamount)))
-    if (length(Samount) > 1) assert_that(are_equal(length(color),
-                                                   length(Samount)))
-    if (length(Vamount) > 1) assert_that(are_equal(length(color),
-                                                   length(Vamount)))
-    
     adjustments <- data.frame(color = color, Hamount = Hamount,
                               Samount = Samount, Vamount = Vamount)
     
@@ -58,42 +52,6 @@ adjust_hsv <- function(color, Hamount = 0, Samount = 0, Vamount = 0,
     })
 }
 
-
-# Working with Hue --------------------------------------------------------
-
-#' @description \code{complement_HSV} returns the complement of the color by
-#' adjusting the color's hue by 180 degrees
-#' @rdname adjust_hsv
-#' @export
-complement_HSV <- function(color, wrap = TRUE) adjust_hsv(color = color,
-                                                          Hamount = 180,
-                                                          wraphue = wrap)
-
-
-# Working with Saturation -------------------------------------------------
-
-#' @description \code{saturate_HSV} increases saturation by the given amount
-#' @rdname adjust_hsv
-#' @export
-saturate_HSV <- function(color, amount) adjust_hsv(color = color,
-                                                   Samount = amount)
-
-
-#' @description \code{desaturate_HSV} decreases saturation by the given amount
-#' @rdname adjust_hsv
-#' @export
-desaturate_HSV <- function(color, amount) adjust_hsv(color = color,
-                                                     Samount = -1 * amount)
-
-
-#' @description \code{greyscale_HSV} fully desaturates the color
-#' @rdname adjust_hsv
-#' @aliases grayscale
-#' @export
-greyscale_HSV <- function(color, space) adjust_hsv(color = color, Samount = -1)
-
-#' @export
-grayscale_HSV <- greyscale_HSV
 
 
 # Working with Brightness -------------------------------------------------
