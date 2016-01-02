@@ -46,5 +46,6 @@ of a color
 \examples{
 adjust_rgb('#000000', Ramount = 0.1, Gamount = 0.3, Bamount = 0.1)
 adjust_red('#00FFFF', amount = 0.1)
+
 }
 

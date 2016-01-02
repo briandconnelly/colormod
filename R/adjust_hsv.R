@@ -6,6 +6,7 @@
 #' @param Hamount Amount to adjust hue (default: 0)
 #' @param Samount Amount to adjust saturation (default: 0)
 #' @param Vamount Amount to adjust value/brightness (default: 0)
+#' @param amount Amount to adjust the component by (default: 0)
 #' @param wraphue Whether or not the resulting hue should be constrained to
 #' [0,360) (default: TRUE)
 #'
@@ -57,18 +58,51 @@ adjust_hsv <- function(color, Hamount = 0, Samount = 0, Vamount = 0,
     })
 }
 
-#' @description \code{adjust_brightness} adjust's a color's brightness
+
+# Working with Hue --------------------------------------------------------
+
+#' @description \code{complement_HSV} returns the complement of the color by
+#' adjusting the color's hue by 180 degrees
 #' @rdname adjust_hsv
 #' @export
-adjust_brightness <- function(color, amount) adjust_hsv(color = color,
-                                                        Vamount = amount)
+complement_HSV <- function(color, wrap = TRUE) adjust_hsv(color = color,
+                                                          Hamount = 180,
+                                                          wraphue = wrap)
 
+
+# Working with Saturation -------------------------------------------------
+
+#' @description \code{saturate_HSV} increases saturation by the given amount
+#' @rdname adjust_hsv
+#' @export
+saturate_HSV <- function(color, amount) adjust_hsv(color = color,
+                                                   Samount = amount)
+
+
+#' @description \code{desaturate_HSV} decreases saturation by the given amount
+#' @rdname adjust_hsv
+#' @export
+desaturate_HSV <- function(color, amount) adjust_hsv(color = color,
+                                                     Samount = -1 * amount)
+
+
+#' @description \code{greyscale_HSV} fully desaturates the color
+#' @rdname adjust_hsv
+#' @aliases grayscale
+#' @export
+greyscale_HSV <- function(color, space) adjust_hsv(color = color, Samount = -1)
+
+#' @export
+grayscale_HSV <- greyscale_HSV
+
+
+# Working with Brightness -------------------------------------------------
 
 #' @description \code{lighten} increases the brightness of the color by the
 #' given amount
 #' @rdname adjust_hsv
 #' @export
-lighten <- adjust_brightness
+lighten <- function(color, amount) adjust_hsv(color = color, Vamount = amount)
 
 
 #' @description \code{darken} decreases the brightness of the color by the
@@ -77,3 +111,4 @@ lighten <- adjust_brightness
 #' @export
 darken <- function(color, amount) adjust_hsv(color = color,
                                              Vamount = -1 * amount)
+

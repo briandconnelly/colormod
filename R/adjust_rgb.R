@@ -17,6 +17,7 @@
 #' @examples
 #' adjust_rgb('#000000', Ramount = 0.1, Gamount = 0.3, Bamount = 0.1)
 #' adjust_red('#00FFFF', amount = 0.1)
+#' 
 adjust_rgb <- function(color, Ramount = 0, Gamount = 0, Bamount = 0) {
     assert_that(is.color(color))
     assert_that(is.numeric(Ramount), Ramount >= 0, Ramount <= 1)
