@@ -10,10 +10,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' is.color('turquoise2')
 #' is.hex.color('#8BADF00D')
-#' }
 #' 
 is.color <- function(x) {
     #is.hex.color(x) | is.named.color(x)

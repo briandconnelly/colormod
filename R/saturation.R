@@ -10,17 +10,18 @@
 #'
 #' @examples
 #' saturate("orange", 0.1)
-#' 
+#'
 
 #' @description \code{saturation} returns the color's saturation [0,1]
 #' @rdname saturation
 #' @export
 saturation <- function(color, space = "HSV") {
     assert_that(is.color(color))
+    assert_that(is.colorspace(space))
     assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-    
+
     warning("This function isn't currently implemented")
-    
+
     if (toupper(space) == "HSV") FALSE
     else if (toupper(space) %in% c("HSL", "HLS")) FALSE
 }
@@ -31,8 +32,9 @@ saturation <- function(color, space = "HSV") {
 saturate <- function(color, amount, space = "HSV") {
     assert_that(is.color(color))
     assert_that(amount >=0 & amount <= 1)
+    assert_that(is.colorspace(space))
     assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-    
+
     if (toupper(space) == "HSV") {
         adjust_hsv(color = color, Samount = amount)
     }
@@ -48,8 +50,9 @@ saturate <- function(color, amount, space = "HSV") {
 desaturate <- function(color, amount, space = "HSV") {
     assert_that(is.color(color))
     assert_that(amount >=0 & amount <= 1)
+    assert_that(is.colorspace(space))
     assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-    
+
     if (toupper(space) == "HSV") {
         adjust_hsv(color = color, Samount = -1 * amount)
     }
@@ -64,8 +67,9 @@ desaturate <- function(color, amount, space = "HSV") {
 #' @export
 greyscale <- function(color, space = "HSV") {
     assert_that(is.color(color))
+    assert_that(is.colorspace(space))
     assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-    
+
     if (toupper(space) == "HSV") adjust_hsv(color = color, Samount = -1)
     else if (toupper(space) %in% c("HSL", "HLS")) adjust_hsl(color = color,
                                                              Samount = -1)

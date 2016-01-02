@@ -26,10 +26,8 @@ Boolean indicating whether or not the given input is a valid color
 \code{is.named.color} checks whether input is a valid named color
 }
 \examples{
-\dontrun{
 is.color('turquoise2')
 is.hex.color('#8BADF00D')
-}
 
 }
 \seealso{
