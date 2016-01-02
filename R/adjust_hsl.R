@@ -43,7 +43,7 @@ adjust_hsl <- function(color, Hamount = 0, Samount = 0, Lamount = 0,
         
         ccoords <- coords(colHSL(x[['color']])[[1]])
         
-        if (wraphue) newH <- ccoords[[1,"H"]] + Hamnt %% 360
+        if (wraphue) newH <- (ccoords[[1,"H"]] + Hamnt) %% 360
         else newH <- max(0, min(360, ccoords[[1,"H"]] + Hamnt))
         
         colorspace::hex(HLS(H = newH,

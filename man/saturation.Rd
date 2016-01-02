@@ -27,7 +27,7 @@ greyscale(color, space = "HSV")
 The adjusted colors as hexadecimal strings
 }
 \description{
-\code{saturation} returns the color's saturation
+\code{saturation} returns the color's saturation [0,1]
 
 \code{saturate} increases saturation by the given amount
 

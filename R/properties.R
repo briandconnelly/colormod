@@ -14,20 +14,6 @@
 #' 
 
 
-#' @description \code{hue} returns a color's hue [0,360)
-#' @rdname properties
-#' @importFrom assertthat assert_that
-#' @importFrom colorspace coords
-#' @export
-hue <- function(color, space = "HSV") {
-    assert_that(is.color(color))
-    assert_that(space %in% c("HSV", "HSL", "HLS"))
-    if (space == "HSL" | space == "HLS") ccoords <- coords(colHLS(color))
-    else ccoords <- coords(colHSV(color))
-    ccoords[[1, "H"]]
-}
-
-
 #' @description \code{brightness} returns a color's brightness (value) in HSV space [0,1]
 #' @rdname properties
 #' @importFrom assertthat assert_that

@@ -12,7 +12,8 @@
 #' saturate("orange", 0.1)
 #' 
 
-#' @description \code{saturation} returns the color's saturation
+#' @description \code{saturation} returns the color's saturation [0,1]
+#' @rdname saturation
 #' @export
 saturation <- function(color, space = "HSV") {
     assert_that(is.color(color))
