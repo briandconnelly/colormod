@@ -2,18 +2,21 @@
 % Please edit documentation in R/colHLS.R
 \name{colHLS}
 \alias{colHLS}
-\title{Convert a hex or named color to a colorspace HLS object}
+\alias{colHSL}
+\title{Convert hex or named colors to colorspace HLS objects}
 \usage{
 colHLS(color)
+
+colHSL(color)
 }
 \arguments{
-\item{color}{The color}
+\item{color}{One or more colors, either hex or named}
 }
 \value{
-An object of class RGB.
+A list of class HLS objects
 }
 \description{
-Convert a hex or named color to a colorspace HLS object
+Convert hex or named colors to colorspace HLS objects
 }
 \note{
 Alpha values are ignored

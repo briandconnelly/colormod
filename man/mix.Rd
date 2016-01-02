@@ -6,7 +6,7 @@
 \alias{tint}
 \title{Color mixing}
 \usage{
-mix(color1, color2, weight = 0.5)
+mix(color1, color2, amount = 0.5)
 
 shade(color, amount)
 
@@ -17,7 +17,7 @@ tint(color, amount)
 
 \item{color2}{The second color}
 
-\item{weight}{The percentage of color2 to be included in the result. The mixed color is obtained by combining an amount 1-alpha of color1 with an amount alpha of color2.}
+\item{amount}{The amount of color2 to add. For \code{shade} and \code{tint}, this is the amount of black and white, respectively, to add.}
 }
 \value{
 The mixed color as a hexadecimal string
@@ -34,6 +34,6 @@ mix('#FFFFFF', '#0000FF', 0.2)
 
 }
 \seealso{
-mixcolor
+\code{\link[colorspace]{mixcolor}}
 }
 

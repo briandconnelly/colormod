@@ -17,7 +17,7 @@ saturation <- function(color, space = "HSV") {
     assert_that(space %in% c("HSV", "HSL", "HLS"))
     if (space == "HSL" | space == "HLS") ccoords <- coords(colHLS(color))
     else ccoords <- coords(colHSV(color))
-    ccoords[[1, 'S']]
+    ccoords[[1, "S"]]
 }
 
 
@@ -31,7 +31,7 @@ hue <- function(color, space = "HSV") {
     assert_that(space %in% c("HSV", "HSL", "HLS"))
     if (space == "HSL" | space == "HLS") ccoords <- coords(colHLS(color))
     else ccoords <- coords(colHSV(color))
-    ccoords[[1, 'H']]   
+    ccoords[[1, "H"]]
 }
 
 
@@ -44,7 +44,7 @@ hue <- function(color, space = "HSV") {
 brightness <- function(color) {
     assert_that(is.color(color))
     ccoords <- coords(colHSV(color))
-    ccoords[[1, 'V']]   
+    ccoords[[1, "V"]]
 }
 
 
@@ -57,7 +57,7 @@ brightness <- function(color) {
 lightness <- function(color) {
     assert_that(is.color(color))
     hls_vals <- coords(colHLS(color))
-    hls_vals[[1, 'L']]   
+    hls_vals[[1, "L"]]
 }
 
 #' @description \code{red} returns a color's red level [0,1]
@@ -68,7 +68,7 @@ lightness <- function(color) {
 red <- function(color) {
     assert_that(is.color(color))
     rgb_vals <- coords(colRGB(color))
-    rgb_vals[[1, 'R']]   
+    rgb_vals[[1, "R"]]
 }
 
 
@@ -80,7 +80,7 @@ red <- function(color) {
 green <- function(color) {
     assert_that(is.color(color))
     rgb_vals <- coords(colRGB(color))
-    rgb_vals[[1, 'G']]   
+    rgb_vals[[1, "G"]]
 }
 
 
@@ -92,5 +92,5 @@ green <- function(color) {
 blue <- function(color) {
     assert_that(is.color(color))
     rgb_vals <- coords(colRGB(color))
-    rgb_vals[[1, 'B']]   
+    rgb_vals[[1, "B"]]
 }

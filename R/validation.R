@@ -6,8 +6,7 @@
 #' @param x A color string
 #'
 #' @return Boolean indicating whether or not the given input is a valid color
-#' @importFrom assertthat assert_that
-#' @importFrom assertthat is.string
+#' @importFrom assertthat on_failure
 #' @export
 #'
 #' @examples
@@ -17,8 +16,19 @@
 #' }
 #' 
 is.color <- function(x) {
-    assert_that(is.string(x))
-    is.hex.color(x) | is.named.color(x)
+    #is.hex.color(x) | is.named.color(x)
+    
+    hex <- grepl(pattern = "^#[a-fA-F0-9]{6}$|^#[a-fA-F0-9]{8}$", x = x,
+                 ignore.case = TRUE)
+    named <- x %in% colors()
+    
+    m <- hex | named
+    if (any(m == FALSE)) {
+        warning(sprintf("Invalid color(s): %s", paste(x[m == FALSE],
+                                                      collapse = ",")))
+    }
+    
+    all(m)
 }
 
 #' @importFrom assertthat on_failure
@@ -29,12 +39,16 @@ assertthat::on_failure(is.color) <- function(call, env) {
 
 #' @description \code{is.hex.color} checks whether input is a valid hex color (with or without alpha component)
 #' @rdname is.color
-#' @importFrom assertthat assert_that
-#' @importFrom assertthat is.string
 #' @export
 is.hex.color <- function(x) {
-    assert_that(is.string(x))
-    regexpr(pattern = "^#[[:xdigit:]]{6}$", text = x, ignore.case = TRUE) == 1 || regexpr(pattern = "^#[[:xdigit:]]{8}$", text = x, ignore.case = TRUE) == 1
+    m <- grepl(pattern = "^#[a-fA-F0-9]{6}$|^#[a-fA-F0-9]{8}$", x = x,
+               ignore.case = TRUE)
+    if (any(m == FALSE)) {
+        warning(sprintf("Invalid hex color(s): %s", paste(x[m == FALSE],
+                                                          collapse = ",")))
+    }
+
+    all(m)
 }
 
 #' @importFrom assertthat on_failure
@@ -45,14 +59,18 @@ assertthat::on_failure(is.hex.color) <- function(call, env) {
 
 #' @description \code{is.named.color} checks whether input is a valid named color
 #' @rdname is.color
-#' @importFrom assertthat assert_that
-#' @importFrom assertthat is.string
 #' @importFrom grDevices colors
 #' @export
 #' @seealso \code{\link{colors}}
 is.named.color <- function(x) {
-    assert_that(is.string(x))
-    x %in% colors()
+    m <- x %in% colors()
+    
+    if (any(m == FALSE)) {
+        warning(sprintf("Invalid color(s): %s", paste(x[m == FALSE],
+                                                      collapse = ",")))
+    }
+    
+    all(m)
 }
 
 #' @importFrom assertthat on_failure

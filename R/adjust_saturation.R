@@ -19,11 +19,11 @@
 adjust_saturation <- function(color, amount, space = "HSV") {
     assert_that(is.color(color))
     assert_that(is.numeric(amount), amount >= -1.0, amount <= 1.0)
-    
+
     ccoords <- coords(colHSV(color))
-    hex(HSV(H = ccoords[[1,'H']],
-            S = max(0, min(1, ccoords[[1,'S']] + amount)),
-            V = ccoords[[1, 'V']]))
+    hex(HSV(H = ccoords[[1,"H"]],
+            S = max(0, min(1, ccoords[[1,"S"]] + amount)),
+            V = ccoords[[1, "V"]]))
 }
 
 

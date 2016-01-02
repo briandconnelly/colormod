@@ -19,5 +19,5 @@ invert <- function(color, amount = 1) {
     assert_that(is.color(color))
     assert_that(is.numeric(amount), amount >= 0, amount <= 1.0)
     x <- (255 - col2rgb(color)) / 255
-    hex(sRGB(R = x[['red', 1]], G = x[['green', 1]], B = x[['blue', 1]]))
+    hex(sRGB(R = x[["red", 1]], G = x[["green", 1]], B = x[["blue", 1]]))
 }

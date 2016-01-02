@@ -3,9 +3,8 @@
 #'
 #' @param color1 The first color
 #' @param color2 The second color
-#' @param amount The amount of color to add.
-#' @param weight The percentage of color2 to be included in the result. The mixed color is obtained by combining an amount 1-alpha of color1 with an amount alpha of color2.
-#' @seealso mixcolor
+#' @param amount The amount of color2 to add. For \code{shade} and \code{tint}, this is the amount of black and white, respectively, to add.
+#' @seealso \code{\link[colorspace]{mixcolor}}
 #'
 #' @return The mixed color as a hexadecimal string
 #' @importFrom assertthat assert_that
@@ -17,11 +16,11 @@
 #' @examples
 #' mix('#FFFFFF', '#0000FF', 0.2)
 #'
-mix <- function(color1, color2, weight = 0.5) {
+mix <- function(color1, color2, amount = 0.5) {
     assert_that(is.color(color1), is.color(color2))
-    assert_that(is.numeric(weight), weight >= 0, weight <= 1.0)
+    assert_that(is.numeric(amount), amount >= 0, amount <= 1.0)
 
-    hex(mixcolor(alpha = weight, color1 = colRGB(color1),
+    hex(mixcolor(alpha = amount, color1 = colRGB(color1),
                  color2 = colRGB(color2)))
 }
 
@@ -29,12 +28,12 @@ mix <- function(color1, color2, weight = 0.5) {
 #' @description \code{shade} shades a given color, mixing it with black
 #' @rdname mix
 #' @export
-shade <- function(color, amount) mix(color1 = color, color2 = '#000000',
-                                     weight = amount)
+shade <- function(color, amount) mix(color1 = color, color2 = "#000000",
+                                     amount = amount)
 
 
 #' @description \code{tint} tints a given color, mixing it with white
 #' @rdname mix
 #' @export
-tint <- function(color, amount) mix(color1 = color, color2 = '#FFFFFF',
-                                    weight = amount)
+tint <- function(color, amount) mix(color1 = color, color2 = "#FFFFFF",
+                                    amount = amount)

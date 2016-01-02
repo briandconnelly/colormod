@@ -2,18 +2,18 @@
 % Please edit documentation in R/colHSV.R
 \name{colHSV}
 \alias{colHSV}
-\title{Convert a hex or named color to a colorspace HSV object}
+\title{Convert hex or named colors to colorspace HSV objects}
 \usage{
 colHSV(color)
 }
 \arguments{
-\item{color}{The color}
+\item{color}{One or more colors, either hex or named}
 }
 \value{
-An object of class RGB.
+A list of class HSV objects
 }
 \description{
-Convert a hex or named color to a colorspace HSV object
+Convert hex or named colors to colorspace HSV objects
 }
 \note{
 Alpha values are ignored

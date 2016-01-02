@@ -1,8 +1,8 @@
-#' Convert a hex or named color to a colorspace RGB object
+#' Convert hex or named colors to colorspace RGB objects
 #'
-#' @param color The color
+#' @param color One or more colors, either hex or named
 #'
-#' @return An object of class RGB.
+#' @return A list of class sRGB objects
 #' @note Alpha values are ignored
 #' @seealso \code{\link[colorspace]{RGB}}
 #' @importFrom assertthat assert_that
@@ -15,6 +15,8 @@
 #'
 colRGB <- function(color) {
     assert_that(is.color(color))
-    x <- col2rgb(color) / 255
-    sRGB(R = x[['red', 1]], G = x[['green', 1]], B = x[['blue', 1]])
+    apply(X = col2rgb(color) / 255,
+          MARGIN = 2,
+          FUN = function(x) sRGB(R = x[["red"]], G = x[["green"]],
+                                 B = x[["blue"]]))
 }

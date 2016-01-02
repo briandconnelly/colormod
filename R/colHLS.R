@@ -1,8 +1,8 @@
-#' Convert a hex or named color to a colorspace HLS object
+#' Convert hex or named colors to colorspace HLS objects
 #'
-#' @param color The color
+#' @param color One or more colors, either hex or named
 #'
-#' @return An object of class RGB.
+#' @return A list of class HLS objects
 #' @note Alpha values are ignored
 #' @seealso \code{\link[colorspace]{HLS}}
 #' @importFrom assertthat assert_that
@@ -16,6 +16,13 @@
 #'
 colHLS <- function(color) {
     assert_that(is.color(color))
-    x <- col2rgb(color) / 255
-    as(RGB(R = x[['red', 1]], G = x[['green', 1]], B = x[['blue', 1]]), 'HLS')
+    rgb <- apply(X = col2rgb(color) / 255,
+                 MARGIN = 2,
+                 FUN = function(x) RGB(R = x[["red"]], G = x[["green"]],
+                                       B = x[["blue"]]))
+    lapply(rgb, function(x) as(x, 'HLS'))
 }
+
+#' @rdname colHLS
+#' @export
+colHSL <- colHLS

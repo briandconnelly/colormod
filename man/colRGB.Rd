@@ -2,18 +2,18 @@
 % Please edit documentation in R/colRGB.R
 \name{colRGB}
 \alias{colRGB}
-\title{Convert a hex or named color to a colorspace RGB object}
+\title{Convert hex or named colors to colorspace RGB objects}
 \usage{
 colRGB(color)
 }
 \arguments{
-\item{color}{The color}
+\item{color}{One or more colors, either hex or named}
 }
 \value{
-An object of class RGB.
+A list of class sRGB objects
 }
 \description{
-Convert a hex or named color to a colorspace RGB object
+Convert hex or named colors to colorspace RGB objects
 }
 \note{
 Alpha values are ignored

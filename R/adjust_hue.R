@@ -23,11 +23,11 @@ adjust_hue <- function(color, amount, wrap = TRUE, space = "HSV") {
     assert_that(is.color(color))
 
     ccoords <- coords(colHSV(color))
-    
-    new_h <- ccoords[[1,'H']] + amount
+
+    new_h <- ccoords[[1,"H"]] + amount
     if (wrap) new_h <- new_h %% 360
-    
-    hex(HSV(H = new_h, S = ccoords[[1,'S']], V = ccoords[[1, 'V']]))
+
+    hex(HSV(H = new_h, S = ccoords[[1,"S"]], V = ccoords[[1, "V"]]))
 }
 
 #' @description \code{complement} returns the complement of the color by

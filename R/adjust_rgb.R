@@ -22,12 +22,12 @@ adjust_rgb <- function(color, Ramount = 0, Gamount = 0, Bamount = 0) {
     assert_that(is.numeric(Ramount), Ramount >= 0, Ramount <= 1)
     assert_that(is.numeric(Gamount), Gamount >= 0, Gamount <= 1)
     assert_that(is.numeric(Bamount), Bamount >= 0, Bamount <= 1)
-    
+
     rgb_vals <- coords(colRGB(color))
 
-    hex(sRGB(R = max(0, min(1, rgb_vals[1,'R'] + Ramount)),
-             G = max(0, min(1, rgb_vals[1,'G'] + Gamount)),
-             B = max(0, min(1, rgb_vals[1,'B'] + Bamount))))
+    hex(sRGB(R = max(0, min(1, rgb_vals[1,"R"] + Ramount)),
+             G = max(0, min(1, rgb_vals[1,"G"] + Gamount)),
+             B = max(0, min(1, rgb_vals[1,"B"] + Bamount))))
 }
 
 
