@@ -19,11 +19,11 @@ adjust_blue(color, amount)
 \arguments{
 \item{color}{The color}
 
-\item{Ramount}{Amount to adjust the red component by (default: 0)}
+\item{Ramount}{Amount to adjust the red component by ([0,1], default: 0)}
 
-\item{Gamount}{Amount to adjust the green component by (default: 0)}
+\item{Gamount}{Amount to adjust the green component by ([0,1], default: 0)}
 
-\item{Bamount}{Amount to adjust the blue component by (default: 0)}
+\item{Bamount}{Amount to adjust the blue component by ([0,1], default: 0)}
 
 \item{amount}{Amount to adjust the component by (default: 0)}
 }

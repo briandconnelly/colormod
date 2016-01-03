@@ -1,5 +1,5 @@
 #' @title Check whether input is a supported colorspace
-#' 
+#'
 #' @description \code{is.colorspace} checks whether or not the given input is a
 #' valid colorspace (i.e., one supported by this package)
 #'

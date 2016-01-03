@@ -1,5 +1,5 @@
 #' @title Check whether input is a valid color
-#' 
+#'
 #' @description \code{is.color} checks whether or not the given input is a valid color
 #' @rdname is.color
 #'
@@ -12,20 +12,18 @@
 #' @examples
 #' is.color('turquoise2')
 #' is.hex.color('#8BADF00D')
-#' 
+#'
 is.color <- function(x) {
-    #is.hex.color(x) | is.named.color(x)
-    
     hex <- grepl(pattern = "^#[a-fA-F0-9]{6}$|^#[a-fA-F0-9]{8}$", x = x,
                  ignore.case = TRUE)
     named <- x %in% colors()
-    
+
     m <- hex | named
     if (any(m == FALSE)) {
         warning(sprintf("Invalid color(s): %s", paste(x[m == FALSE],
                                                       collapse = ",")))
     }
-    
+
     all(m)
 }
 
@@ -62,12 +60,12 @@ assertthat::on_failure(is.hex.color) <- function(call, env) {
 #' @seealso \code{\link{colors}}
 is.named.color <- function(x) {
     m <- x %in% colors()
-    
+
     if (any(m == FALSE)) {
         warning(sprintf("Invalid color(s): %s", paste(x[m == FALSE],
                                                       collapse = ",")))
     }
-    
+
     all(m)
 }
 

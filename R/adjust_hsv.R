@@ -1,5 +1,5 @@
 #' @title Adjust color properties in HSV space
-#' 
+#'
 #' @description \code{adjust_hsv} adjusts the properties of colors in HSV space
 #' (hue, saturation, and value/brightness)
 #'
@@ -17,6 +17,7 @@
 #' range [0,360].
 #' @importFrom assertthat assert_that
 #' @importFrom assertthat are_equal
+#' @importFrom assertthat is.flag
 #' @importFrom colorspace coords
 #' @importFrom colorspace HSV
 #' @importFrom colorspace hex
@@ -25,30 +26,31 @@
 #' @examples
 #' # Decrease saturation of orange by 0.1
 #' adjust_hsv(color = "orange", Samount = -0.1)
-#' 
+#'
 #' lighten('orange', 0.2)
-#' 
+#'
 adjust_hsv <- function(color, Hamount = 0, Samount = 0, Vamount = 0,
                        wraphue = TRUE) {
     assert_that(is.color(color))
     assert_that(is.numeric(Hamount), is.numeric(Samount), is.numeric(Vamount))
+    assert_that(is.flag(wraphue))
 
     adjustments <- data.frame(color = color, Hamount = Hamount,
                               Samount = Samount, Vamount = Vamount)
-    
+
     apply(adjustments, 1, function(x) {
         Hamnt <- as.numeric(x[['Hamount']])
         Samnt <- as.numeric(x[['Samount']])
         Vamnt <- as.numeric(x[['Vamount']])
-        
+
         ccoords <- coords(colHSV(x[['color']])[[1]])
-        
+
         if (wraphue) newH <- (ccoords[[1,"H"]] + Hamnt) %% 360
-        else newH <- max(0, min(360, ccoords[[1,"H"]] + Hamnt))
-        
+        else newH <- clamp(ccoords[[1,"H"]] + Hamnt, 0, 360)
+
         colorspace::hex(HSV(H = newH,
-                            S = max(0, min(1, ccoords[[1,"S"]] + Samnt)),
-                            V = max(0, min(1, ccoords[[1,"V"]] + Vamnt))))
+                            S = clamp(ccoords[[1,"S"]] + Samnt, 0, 1),
+                            V = clamp(ccoords[[1,"V"]] + Vamnt, 0, 1)))
     })
 }
 

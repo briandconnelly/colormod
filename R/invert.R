@@ -1,5 +1,5 @@
 #' Invert a color
-#' 
+#'
 #' \code{invert} inverts each channel of a color
 #'
 #' @param color The color to invert

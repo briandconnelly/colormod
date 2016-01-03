@@ -11,7 +11,7 @@
 #'
 #' @examples
 #' hue('orange')
-#' 
+#'
 
 
 #' @description \code{brightness} returns a color's brightness (value) in HSV space [0,1]
