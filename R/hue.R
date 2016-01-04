@@ -20,7 +20,6 @@
 hue <- function(color, space = "HSV") {
     assert_that(is.color(color))
     assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-    if(toupper(space) == "HSL") space <- "HLS"
     as.numeric(coordinates(color = color, space = toupper(space))@coords[,"H"])
 }
 
@@ -31,7 +30,6 @@ hue <- function(color, space = "HSV") {
 adjust_hue <- function(color, amount, space = "HSV", wrap = TRUE) {
     assert_that(is.color(color))
     assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-    if(toupper(space) == "HSL") space <- "HLS"
 
     if (toupper(space) == "HSV") {
         adjust_hsv(color = color, Hamount = amount, wraphue = wrap)

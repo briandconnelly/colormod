@@ -15,6 +15,7 @@ test_that("Hex colors convert properly internally", {
     expect_equal(hex(c2), toupper(c2))
     expect_equal(hex(c3), toupper(c3))
     expect_equal(hex(c4), toupper(c4))
+    expect_error(hex(21))
     expect_equal(hex(c("#000000", "#FFFFFF")), c("#000000", "#FFFFFF"))
     expect_equal(hex(c(c(c1, c2, c3, c4))), toupper(c(c1, c2, c3, c4)))
 })

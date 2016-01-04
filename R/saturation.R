@@ -18,7 +18,6 @@
 saturation <- function(color, space = "HSV") {
     assert_that(is.color(color))
     assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-    if(toupper(space) == "HSL") space <- "HLS"
     as.numeric(coordinates(color = color, space = toupper(space))@coords[,"S"])
 }
 
@@ -30,7 +29,6 @@ saturation <- function(color, space = "HSV") {
 saturate <- function(color, amount, space = "HSV") {
     assert_that(is.color(color))
     assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-    if(toupper(space) == "HSL") space <- "HLS"
 
     if (toupper(space) == "HSV") {
         adjust_hsv(color = color, Samount = amount)
