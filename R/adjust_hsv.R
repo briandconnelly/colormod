@@ -39,5 +39,5 @@ adjust_hsv <- function(color, Hamount = 0, Samount = 0, Vamount = 0,
 
     coords@coords[,"S"] <- clamp(coords@coords[,"S"] + Samount, 0, 1)
     coords@coords[,"V"] <- clamp(coords@coords[,"V"] + Vamount, 0, 1)
-    hex(coords)
+    colorspace::hex(coords)
 }

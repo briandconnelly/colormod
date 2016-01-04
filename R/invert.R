@@ -20,5 +20,5 @@ invert <- function(color, amount = 1) {
     coords@coords[,"R"] <- clamp(1 - coords@coords[,"R"], 0, 1)
     coords@coords[,"G"] <- clamp(1 - coords@coords[,"G"], 0, 1)
     coords@coords[,"B"] <- clamp(1 - coords@coords[,"B"], 0, 1)
-    hex(coords)
+    colorspace::hex(coords)
 }

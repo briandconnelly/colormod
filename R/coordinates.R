@@ -18,11 +18,15 @@
 #'
 coordinates <- function(color, space = "sRGB") {
     assert_that(is.color(color))
-    # TODO: validate space
+    assert_that(is.colorspace(space))
 
-    if(toupper(space == "HSL")) space <- "HLS"
+    if(toupper(space) == "SRGB") space <- "sRGB"
+    else if(toupper(space) == "HSL") space <- "HLS"
 
     x <- col2rgb(color) / 255
-    c <- RGB(R = x["red",], G = x["green",], B = x["blue",])
+
+    # For some reason, sRGB->HLS doesn't work properly, but RGB -> HLS does.
+    if (space == "HLS") c <- RGB(R = x["red",], G = x["green",], B = x["blue",])
+    else c <- sRGB(R = x["red",], G = x["green",], B = x["blue",])
     as(c, space)
 }

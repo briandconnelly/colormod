@@ -3,10 +3,10 @@
 #' @description \code{is.colorspace} checks whether or not the given input is a
 #' valid colorspace (i.e., one supported by this package)
 #'
-#' @param x A string containing a colorspace name
+#' @param x One or more strings containing a colorspace name
 #'
 #' @return Boolean indicating whether or not the given input is a valid
-#' colorspace
+#' colorspace. If more than one are given, ALL must be valid.
 #' @importFrom assertthat on_failure
 #' @export
 #'
@@ -14,7 +14,7 @@
 #' is.colorspace('hsv')
 #'
 is.colorspace <- function(x) {
-    toupper(x) %in% c("RGB", "SRGB", "HSV", "HSL", "HLS")
+    all(toupper(x) %in% c("RGB", "SRGB", "HSV", "HSL", "HLS", "XYZ", "LAB"))
 }
 
 #' @importFrom assertthat on_failure

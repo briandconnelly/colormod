@@ -39,7 +39,7 @@ adjust_hsl <- function(color, Hamount = 0, Samount = 0, Lamount = 0,
 
     coords@coords[,"S"] <- clamp(coords@coords[,"S"] + Samount, 0, 1)
     coords@coords[,"L"] <- clamp(coords@coords[,"L"] + Lamount, 0, 1)
-    hex(coords)
+    colorspace::hex(coords)
 }
 
 #' @export

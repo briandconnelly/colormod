@@ -19,9 +19,9 @@ mix <- function(color1, color2, amount = 0.5) {
     assert_that(is.color(color1), is.color(color2))
     assert_that(is.numeric(amount), amount >= 0, amount <= 1.0)
 
-    hex(mixcolor(alpha = amount,
-                 color1 = coordinates(color1),
-                 color2 = coordinates(color2)))
+    colorspace::hex(mixcolor(alpha = amount,
+                             color1 = coordinates(color1),
+                             color2 = coordinates(color2)))
 }
 
 

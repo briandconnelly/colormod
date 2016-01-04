@@ -7,11 +7,11 @@
 is.colorspace(x)
 }
 \arguments{
-\item{x}{A string containing a colorspace name}
+\item{x}{One or more strings containing a colorspace name}
 }
 \value{
 Boolean indicating whether or not the given input is a valid
-colorspace
+colorspace. If more than one are given, ALL must be valid.
 }
 \description{
 \code{is.colorspace} checks whether or not the given input is a

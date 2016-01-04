@@ -24,7 +24,7 @@ adjust_rgb <- function(color, Ramount = 0, Gamount = 0, Bamount = 0) {
     coords@coords[,"R"] <- clamp(coords@coords[,"R"] + Ramount, 0, 1)
     coords@coords[,"G"] <- clamp(coords@coords[,"G"] + Gamount, 0, 1)
     coords@coords[,"B"] <- clamp(coords@coords[,"B"] + Bamount, 0, 1)
-    hex(coords)
+    colorspace::hex(coords)
 }
 
 

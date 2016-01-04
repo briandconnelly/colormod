@@ -1,6 +1,7 @@
 #' @title Check whether input is a valid color
 #'
-#' @description \code{is.color} checks whether or not the given input is a valid color
+#' @description \code{is.color} checks whether or not the given input is a valid
+#' color
 #' @rdname is.color
 #'
 #' @param x A color string
@@ -14,17 +15,10 @@
 #' is.hex.color('#8BADF00D')
 #'
 is.color <- function(x) {
-    hex <- grepl(pattern = "^#[a-fA-F0-9]{6}$|^#[a-fA-F0-9]{8}$", x = x,
+    hex <- grepl(pattern = "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{8})$", x = x,
                  ignore.case = TRUE)
     named <- x %in% colors()
-
-    m <- hex | named
-    if (any(m == FALSE)) {
-        warning(sprintf("Invalid color(s): %s", paste(x[m == FALSE],
-                                                      collapse = ",")))
-    }
-
-    all(m)
+    all(hex | named)
 }
 
 #' @importFrom assertthat on_failure
@@ -33,17 +27,13 @@ assertthat::on_failure(is.color) <- function(call, env) {
 }
 
 
-#' @description \code{is.hex.color} checks whether input is a valid hex color (with or without alpha component)
+#' @description \code{is.hex.color} checks whether input is a valid hex color
+#' (with or without alpha component)
 #' @rdname is.color
 #' @export
 is.hex.color <- function(x) {
-    m <- grepl(pattern = "^#[a-fA-F0-9]{6}$|^#[a-fA-F0-9]{8}$", x = x,
+    m <- grepl(pattern = "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{8})$", x = x,
                ignore.case = TRUE)
-    if (any(m == FALSE)) {
-        warning(sprintf("Invalid hex color(s): %s", paste(x[m == FALSE],
-                                                          collapse = ",")))
-    }
-
     all(m)
 }
 
@@ -53,20 +43,14 @@ assertthat::on_failure(is.hex.color) <- function(call, env) {
 }
 
 
-#' @description \code{is.named.color} checks whether input is a valid named color
+#' @description \code{is.named.color} checks whether input is a valid named
+#' color
 #' @rdname is.color
 #' @importFrom grDevices colors
 #' @export
 #' @seealso \code{\link{colors}}
 is.named.color <- function(x) {
-    m <- x %in% colors()
-
-    if (any(m == FALSE)) {
-        warning(sprintf("Invalid color(s): %s", paste(x[m == FALSE],
-                                                      collapse = ",")))
-    }
-
-    all(m)
+    all(x %in% colors())
 }
 
 #' @importFrom assertthat on_failure

@@ -19,11 +19,14 @@ is.named.color(x)
 Boolean indicating whether or not the given input is a valid color
 }
 \description{
-\code{is.color} checks whether or not the given input is a valid color
+\code{is.color} checks whether or not the given input is a valid
+color
 
-\code{is.hex.color} checks whether input is a valid hex color (with or without alpha component)
+\code{is.hex.color} checks whether input is a valid hex color
+(with or without alpha component)
 
-\code{is.named.color} checks whether input is a valid named color
+\code{is.named.color} checks whether input is a valid named
+color
 }
 \examples{
 is.color('turquoise2')
