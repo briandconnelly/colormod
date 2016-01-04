@@ -28,7 +28,7 @@ hue <- function(color, space = "HSV") {
 #' @description \code{adjust_hue} Increases or decreases the color's hue
 #' @rdname hue
 #' @export
-adjust_hue <- function(color, space = "HSV", amount, wrap = TRUE) {
+adjust_hue <- function(color, amount, space = "HSV", wrap = TRUE) {
     assert_that(is.color(color))
     assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
     if(toupper(space) == "HSL") space <- "HLS"
@@ -51,5 +51,5 @@ adjust_hue <- function(color, space = "HSV", amount, wrap = TRUE) {
 #' complement("orange", space = "HSL")
 #'
 complement <- function(color, space = "HSV", wrap = TRUE) {
-    adjust_hue(color = color, space = space, amount = 180, wrap = wrap)
+    adjust_hue(color = color, amount = 180, space = space, wrap = wrap)
 }

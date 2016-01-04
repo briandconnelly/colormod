@@ -8,7 +8,7 @@
 \usage{
 hue(color, space = "HSV")
 
-adjust_hue(color, space = "HSV", amount, wrap = TRUE)
+adjust_hue(color, amount, space = "HSV", wrap = TRUE)
 
 complement(color, space = "HSV", wrap = TRUE)
 }

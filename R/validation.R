@@ -17,9 +17,10 @@
 #' is.hex.color('#8BADF00D')
 #'
 is.color <- function(x, allow_alpha = TRUE) {
-    
-    if (allow_alpha) hex <- grepl(pattern = "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{8})$",
-                                  x = x, ignore.case = TRUE)
+    if (allow_alpha) {
+        hex <- grepl(pattern = "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{8})$", x = x,
+                     ignore.case = TRUE)
+    }
     else hex <- grepl(pattern = "^#[a-fA-F0-9]{6}$", x = x, ignore.case = TRUE)
 
     named <- x %in% colors()
