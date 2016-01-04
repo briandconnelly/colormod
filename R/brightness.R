@@ -2,7 +2,6 @@
 #'
 #' @param color One or more colors, either hex or named
 #' @param amount Amount to adjust brightness or lightness by [0,1]
-#' @param space The colorspace to use, "\code{HSV}" (default) or "\code{HSL}"
 #'
 #' @return The adjusted color(s) as hexadecimal strings
 #' @rdname brightness

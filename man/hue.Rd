@@ -17,6 +17,8 @@ complement(color, space = "HSV", wrap = TRUE)
 
 \item{space}{The colorspace to use, "\code{HSV}" (default) or "\code{HSL}"}
 
+\item{amount}{Amount to adjust hue by [0,1]}
+
 \item{wrap}{Whether or not the resulting hue should be constrained to
 [0,360] (default: \code{TRUE})}
 }

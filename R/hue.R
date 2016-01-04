@@ -2,6 +2,7 @@
 #'
 #' @param color One or more colors, either hex or named
 #' @param space The colorspace to use, "\code{HSV}" (default) or "\code{HSL}"
+#' @param amount Amount to adjust hue by [0,1]
 #' @param wrap Whether or not the resulting hue should be constrained to
 #' [0,360] (default: \code{TRUE})
 #'

@@ -18,6 +18,8 @@ tint(color, amount)
 \item{color2}{One or more colors, either hex or named}
 
 \item{amount}{The amount of color2 to add. For \code{shade} and \code{tint}, this is the amount of black and white, respectively, to add.}
+
+\item{color}{One or more colors, either hex or named}
 }
 \value{
 The mixed colors as hexadecimal strings

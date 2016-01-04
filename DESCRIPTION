@@ -1,5 +1,5 @@
 Package: colormod
-Title: Simple tools for manipulating colors
+Title: Simple Tools for Manipulating Colors
 Version: 0.1.0
 Authors@R: c(person(family="Connelly", given="Brian D.",
     email="bdc@bconnelly.net", role=c("aut", "cre")))

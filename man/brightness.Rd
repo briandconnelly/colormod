@@ -25,8 +25,6 @@ darken(color, amount)
 \item{color}{One or more colors, either hex or named}
 
 \item{amount}{Amount to adjust brightness or lightness by [0,1]}
-
-\item{space}{The colorspace to use, "\code{HSV}" (default) or "\code{HSL}"}
 }
 \value{
 The adjusted color(s) as hexadecimal strings

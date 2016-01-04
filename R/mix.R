@@ -3,6 +3,7 @@
 #'
 #' @param color1 One or more colors, either hex or named
 #' @param color2 One or more colors, either hex or named
+#' @param color One or more colors, either hex or named
 #' @param amount The amount of color2 to add. For \code{shade} and \code{tint}, this is the amount of black and white, respectively, to add.
 #' @seealso \code{\link[colorspace]{mixcolor}}
 #'

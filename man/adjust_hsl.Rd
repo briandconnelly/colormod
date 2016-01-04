@@ -18,8 +18,6 @@ adjust_hsl(color, Hamount = 0, Samount = 0, Lamount = 0, wraphue = TRUE)
 
 \item{wraphue}{Whether or not the resulting hue should be constrained to
 [0,360) (default: TRUE)}
-
-\item{amount}{Amount to adjust the component by (default: 0)}
 }
 \value{
 The adjusted color(s) as hexadecimal strings

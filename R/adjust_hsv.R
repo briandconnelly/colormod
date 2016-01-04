@@ -7,7 +7,6 @@
 #' @param Hamount Amount to adjust hue (default: 0)
 #' @param Samount Amount to adjust saturation (default: 0)
 #' @param Vamount Amount to adjust value/brightness (default: 0)
-#' @param amount Amount to adjust the component by (default: 0)
 #' @param wraphue Whether or not the resulting hue should be constrained to
 #' [0,360) (default: TRUE)
 #'
