@@ -5,6 +5,8 @@
 #' @rdname is.color
 #'
 #' @param x A color string
+#' @param allow_alpha Whether or not alpha parameters are allowed in hex color
+#' strings (default: \code{TRUE})
 #'
 #' @return Boolean indicating whether or not the given input is a valid color
 #' @importFrom assertthat on_failure
@@ -14,9 +16,12 @@
 #' is.color('turquoise2')
 #' is.hex.color('#8BADF00D')
 #'
-is.color <- function(x) {
-    hex <- grepl(pattern = "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{8})$", x = x,
-                 ignore.case = TRUE)
+is.color <- function(x, allow_alpha = TRUE) {
+    
+    if (allow_alpha) hex <- grepl(pattern = "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{8})$",
+                                  x = x, ignore.case = TRUE)
+    else hex <- grepl(pattern = "^#[a-fA-F0-9]{6}$", x = x, ignore.case = TRUE)
+
     named <- x %in% colors()
     all(hex | named)
 }
@@ -31,9 +36,10 @@ assertthat::on_failure(is.color) <- function(call, env) {
 #' (with or without alpha component)
 #' @rdname is.color
 #' @export
-is.hex.color <- function(x) {
-    m <- grepl(pattern = "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{8})$", x = x,
-               ignore.case = TRUE)
+is.hex.color <- function(x, allow_alpha = TRUE) {
+    if (allow_alpha) m <- grepl(pattern = "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{8})$",
+                                x = x, ignore.case = TRUE)
+    else m <- grepl(pattern = "^#[a-fA-F0-9]{6}$", x = x, ignore.case = TRUE)
     all(m)
 }
 

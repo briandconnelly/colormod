@@ -6,14 +6,17 @@
 \alias{is.named.color}
 \title{Check whether input is a valid color}
 \usage{
-is.color(x)
+is.color(x, allow_alpha = TRUE)
 
-is.hex.color(x)
+is.hex.color(x, allow_alpha = TRUE)
 
 is.named.color(x)
 }
 \arguments{
 \item{x}{A color string}
+
+\item{allow_alpha}{Whether or not alpha parameters are allowed in hex color
+strings (default: \code{TRUE})}
 }
 \value{
 Boolean indicating whether or not the given input is a valid color
