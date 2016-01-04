@@ -41,21 +41,3 @@ adjust_hsv <- function(color, Hamount = 0, Samount = 0, Vamount = 0,
     coords@coords[,"V"] <- clamp(coords@coords[,"V"] + Vamount, 0, 1)
     hex(coords)
 }
-
-
-# Working with Brightness -------------------------------------------------
-
-#' @description \code{lighten} increases the brightness of the color by the
-#' given amount
-#' @rdname adjust_hsv
-#' @export
-lighten <- function(color, amount) adjust_hsv(color = color, Vamount = amount)
-
-
-#' @description \code{darken} decreases the brightness of the color by the
-#' given amount
-#' @rdname adjust_hsv
-#' @export
-darken <- function(color, amount) adjust_hsv(color = color,
-                                             Vamount = -1 * amount)
-

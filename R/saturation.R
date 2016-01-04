@@ -18,18 +18,19 @@
 saturation <- function(color, space = "HSV") {
     assert_that(is.color(color))
     assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-    if(toupper(space) == "HSL") space = "HLS"
+    if(toupper(space) == "HSL") space <- "HLS"
     as.numeric(coordinates(color = color, space = toupper(space))@coords[,"S"])
 }
 
 
 #' @description \code{saturate} increases saturation by the given amount
 #' @rdname saturation
+#' @aliases adjust_saturation
 #' @export
 saturate <- function(color, amount, space = "HSV") {
     assert_that(is.color(color))
     assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-    if(toupper(space) == "HSL") space = "HLS"
+    if(toupper(space) == "HSL") space <- "HLS"
 
     if (toupper(space) == "HSV") {
         adjust_hsv(color = color, Samount = amount)
@@ -38,6 +39,9 @@ saturate <- function(color, amount, space = "HSV") {
         adjust_hsl(color = color, Samount = amount)
     }
 }
+
+#' @export
+adjust_saturation <- saturate
 
 
 #' @description \code{desaturate} decreases saturation by the given amount

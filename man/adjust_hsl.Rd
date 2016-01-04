@@ -22,7 +22,7 @@ adjust_hsl(color, Hamount = 0, Samount = 0, Lamount = 0, wraphue = TRUE)
 \item{amount}{Amount to adjust the component by (default: 0)}
 }
 \value{
-The adjusted colors as hexadecimal strings
+The adjusted color(s) as hexadecimal strings
 }
 \description{
 \code{adjust_hsl} (also \code{adjust_hls}) adjusts the

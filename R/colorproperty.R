@@ -35,4 +35,3 @@ green <- function(color) colorproperty(color = color, space = "RGB",
 #' @rdname colorproperty
 blue <- function(color) colorproperty(color = color, space = "RGB",
                                       property = "B")
-

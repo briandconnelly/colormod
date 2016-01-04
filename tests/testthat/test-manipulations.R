@@ -10,26 +10,26 @@ medpurple3 <- "#8968CD"
 
 test_that("brightness adjustments work properly", {
     expect_equal(adjust_brightness(color = medpurple3, amount = 0), medpurple3)
-    expect_equal(adjust_brightness(color = 'mediumpurple3', amount = 0),
+    expect_equal(adjust_brightness(color = "mediumpurple3", amount = 0),
                  medpurple3)
     expect_equal(lighten(color = medpurple3, amount = 0), medpurple3)
-    expect_equal(lighten(color = '#FFFFFF', amount = 1), '#FFFFFF')
-    expect_equal(lighten(color = '#FFFFFF', amount = -1), '#000000')
-    expect_equal(lighten(color = '#000000', amount = 1), '#FFFFFF')
-    expect_equal(lighten(color = '#000000', amount = 0.5), '#808080')
-    expect_equal(darken(color = 'white', 0), '#FFFFFF')
-    expect_equal(darken(color = 'white', 1), '#000000')
-    expect_equal(darken(color = '#000000', 1), '#000000')
+    expect_equal(lighten(color = "#FFFFFF", amount = 1), "#FFFFFF")
+    expect_equal(lighten(color = "#FFFFFF", amount = -1), "#000000")
+    expect_equal(lighten(color = "#000000", amount = 1), "#FFFFFF")
+    expect_equal(lighten(color = "#000000", amount = 0.5), "#808080")
+    expect_equal(darken(color = "white", 0), "#FFFFFF")
+    expect_equal(darken(color = "white", 1), "#000000")
+    expect_equal(darken(color = "#000000", 1), "#000000")
 })
 
 test_that("saturation adjustments work properly", {
     expect_equal(adjust_saturation(color = medpurple3, amount = 0), medpurple3)
-    expect_equal(adjust_saturation(color = medpurple3, amount = 1), '#4300CD')
+    expect_equal(adjust_saturation(color = medpurple3, amount = 1), "#4300CD")
     expect_equal(desaturate(color = "#F00000", amount = 1), "#F0F0F0")
     expect_equal(saturate(color = "#F0F0F0", amount = 1), "#F00000")
-    expect_equal(greyscale(color = '#CCCCCC'), '#CCCCCC')
-    expect_equal(greyscale(color = medpurple3), '#CDCDCD')
-    expect_equal(grayscale(color = medpurple3), '#CDCDCD')
+    expect_equal(greyscale(color = "#CCCCCC"), "#CCCCCC")
+    expect_equal(greyscale(color = medpurple3), "#CDCDCD")
+    expect_equal(grayscale(color = medpurple3), "#CDCDCD")
 })
 
 test_that("hue adjustments work properly", {

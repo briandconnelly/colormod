@@ -2,15 +2,9 @@
 % Please edit documentation in R/adjust_hsv.R
 \name{adjust_hsv}
 \alias{adjust_hsv}
-\alias{darken}
-\alias{lighten}
 \title{Adjust color properties in HSV space}
 \usage{
 adjust_hsv(color, Hamount = 0, Samount = 0, Vamount = 0, wraphue = TRUE)
-
-lighten(color, amount)
-
-darken(color, amount)
 }
 \arguments{
 \item{color}{One or more colors, either hex or named}
@@ -27,17 +21,11 @@ darken(color, amount)
 \item{amount}{Amount to adjust the component by (default: 0)}
 }
 \value{
-The adjusted colors as hexadecimal strings
+The adjusted color(s) as hexadecimal strings
 }
 \description{
 \code{adjust_hsv} adjusts the properties of colors in HSV space
 (hue, saturation, and value/brightness)
-
-\code{lighten} increases the brightness of the color by the
-given amount
-
-\code{darken} decreases the brightness of the color by the
-given amount
 }
 \note{
 Adjusted saturation and brightness are clamped to the range [0,1].

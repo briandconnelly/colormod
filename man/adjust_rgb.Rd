@@ -28,7 +28,7 @@ adjust_blue(color, amount)
 \item{amount}{Amount to adjust the component by (default: 0)}
 }
 \value{
-The adjusted color as a hexadecimal string
+The adjusted color(s) as a hexadecimal string
 }
 \description{
 Adjust the sRGB components of a color. The resulting components are clamped

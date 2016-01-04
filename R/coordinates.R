@@ -20,9 +20,9 @@ coordinates <- function(color, space = "sRGB") {
     assert_that(is.color(color))
     # TODO: validate space
 
-    if(toupper(space == "HSL")) space = "HLS"
+    if(toupper(space == "HSL")) space <- "HLS"
 
-    x <- col2rgb(color)/ 255
+    x <- col2rgb(color) / 255
     c <- RGB(R = x["red",], G = x["green",], B = x["blue",])
     as(c, space)
 }

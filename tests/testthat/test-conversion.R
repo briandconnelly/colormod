@@ -2,9 +2,9 @@ context("Color conversion")
 
 library(colorspace)
 
-c1 <- '#FFa312'
-c2 <- '#000000'
-c3 <- '#FFFFFF'
+c1 <- "#FFa312"
+c2 <- "#000000"
+c3 <- "#FFFFFF"
 
 test_that("Hex colors convert properly to RGB", {
     expect_equal(hex(colRGB(c1)), hex(hex2RGB(c1)))

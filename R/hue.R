@@ -19,8 +19,25 @@
 hue <- function(color, space = "HSV") {
     assert_that(is.color(color))
     assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-    if(toupper(space) == "HSL") space = "HLS"
+    if(toupper(space) == "HSL") space <- "HLS"
     as.numeric(coordinates(color = color, space = toupper(space))@coords[,"H"])
+}
+
+
+#' @description \code{adjust_hue} Increases or decreases the color's hue
+#' @rdname hue
+#' @export
+adjust_hue <- function(color, space = "HSV", amount, wrap = TRUE) {
+    assert_that(is.color(color))
+    assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
+    if(toupper(space) == "HSL") space <- "HLS"
+
+    if (toupper(space) == "HSV") {
+        adjust_hsv(color = color, Hamount = amount, wraphue = wrap)
+    }
+    else if (toupper(space) %in% c("HSL", "HLS")) {
+        adjust_hsl(color = color, Hamount = amount, wraphue = wrap)
+    }
 }
 
 
@@ -33,14 +50,5 @@ hue <- function(color, space = "HSV") {
 #' complement("orange", space = "HSL")
 #'
 complement <- function(color, space = "HSV", wrap = TRUE) {
-    assert_that(is.color(color))
-    assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-    if(toupper(space) == "HSL") space = "HLS"
-
-    if (toupper(space) == "HSV") {
-        adjust_hsv(color = color, Hamount = 180)
-    }
-    else if (toupper(space) %in% c("HSL", "HLS")) {
-        adjust_hsl(color = color, Hamount = 180)
-    }
+    adjust_hue(color = color, space = space, amount = 180, wrap = wrap)
 }
