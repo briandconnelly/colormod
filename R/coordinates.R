@@ -14,7 +14,7 @@
 #' @export
 #'
 #' @examples
-#' coordinates(color = "orange)
+#' coordinates(color = "orange")
 #'
 coordinates <- function(color, space = "sRGB") {
     assert_that(is.color(color))

@@ -5,7 +5,7 @@
 #' @param wrap Whether or not the resulting hue should be constrained to
 #' [0,360] (default: \code{TRUE})
 #'
-#' @return The adjusted colors as hexadecimal strings
+#' @return The adjusted color(s) as hexadecimal strings
 #' @rdname hue
 #' @importFrom assertthat assert_that
 

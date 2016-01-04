@@ -11,7 +11,7 @@
 #' @param wraphue Whether or not the resulting hue should be constrained to
 #' [0,360) (default: TRUE)
 #'
-#' @return The adjusted colors as hexadecimal strings
+#' @return The adjusted color(s) as hexadecimal strings
 #' @note Adjusted saturation and brightness are clamped to the range [0,1].
 #' @note If \code{wraphue} is \code{FALSE}, resulting hue is clamped to the
 #' range [0,360].

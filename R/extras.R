@@ -1,3 +1,5 @@
 clamp <- function(value, min, max) {
-    max(min, min(max, value))
+    value[value < min] <- min
+    value[value > max] <- max
+    value
 }

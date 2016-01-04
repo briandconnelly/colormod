@@ -14,6 +14,9 @@
 #'
 
 
+
+# can do: c@coords[,"H"] <- colorproperty(mycolor, 'HSV', 'H') * 0.1
+
 #' @description \code{brightness} returns a color's brightness (value) in HSV space [0,1]
 #' @rdname properties
 #' @importFrom assertthat assert_that
@@ -39,37 +42,6 @@ lightness <- function(color) {
     hls_vals[[1, "L"]]
 }
 
-#' @description \code{red} returns a color's red level [0,1]
-#' @rdname properties
-#' @importFrom assertthat assert_that
-#' @importFrom colorspace coords
-#' @export
-red <- function(color) {
-    assert_that(is.color(color))
-    rgb_vals <- coords(colRGB(color))
-    rgb_vals[[1, "R"]]
-}
 
 
-#' @description \code{green} returns a color's green level [0,1]
-#' @rdname properties
-#' @importFrom assertthat assert_that
-#' @importFrom colorspace coords
-#' @export
-green <- function(color) {
-    assert_that(is.color(color))
-    rgb_vals <- coords(colRGB(color))
-    rgb_vals[[1, "G"]]
-}
 
-
-#' @description \code{red} returns a color's blue level [0,1]
-#' @rdname properties
-#' @importFrom assertthat assert_that
-#' @importFrom colorspace coords
-#' @export
-blue <- function(color) {
-    assert_that(is.color(color))
-    rgb_vals <- coords(colRGB(color))
-    rgb_vals[[1, "B"]]
-}

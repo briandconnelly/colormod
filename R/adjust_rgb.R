@@ -7,7 +7,7 @@
 #' @param Bamount Amount to adjust the blue component by ([0,1], default: 0)
 #' @param amount Amount to adjust the component by (default: 0)
 #'
-#' @return The adjusted color as a hexadecimal string
+#' @return The adjusted color(s) as a hexadecimal string
 #' @importFrom assertthat assert_that
 #' @importFrom colorspace hex
 #' @export

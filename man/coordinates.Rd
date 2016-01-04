@@ -17,4 +17,8 @@ A \code{\link[colorspace]{color-class}} object
 \description{
 Get color coordinates in a given color space
 }
+\examples{
+coordinates(color = "orange")
+
+}
 

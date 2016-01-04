@@ -4,7 +4,7 @@
 #' @param amount Amount to adjust saturation by [0,1]
 #' @param space The colorspace to use, "\code{HSV}" (default) or "\code{HSL}"
 #'
-#' @return The adjusted colors as hexadecimal strings
+#' @return The adjusted color(s) as hexadecimal strings
 #' @rdname saturation
 #' @importFrom assertthat assert_that
 #'
