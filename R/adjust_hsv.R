@@ -16,10 +16,7 @@
 #' @note If \code{wraphue} is \code{FALSE}, resulting hue is clamped to the
 #' range [0,360].
 #' @importFrom assertthat assert_that
-#' @importFrom assertthat are_equal
 #' @importFrom assertthat is.flag
-#' @importFrom colorspace coords
-#' @importFrom colorspace HSV
 #' @importFrom colorspace hex
 #' @export
 #'
@@ -35,25 +32,15 @@ adjust_hsv <- function(color, Hamount = 0, Samount = 0, Vamount = 0,
     assert_that(is.numeric(Hamount), is.numeric(Samount), is.numeric(Vamount))
     assert_that(is.flag(wraphue))
 
-    adjustments <- data.frame(color = color, Hamount = Hamount,
-                              Samount = Samount, Vamount = Vamount)
+    coords <- coordinates(color = color, space = "HSV")
 
-    apply(adjustments, 1, function(x) {
-        Hamnt <- as.numeric(x[['Hamount']])
-        Samnt <- as.numeric(x[['Samount']])
-        Vamnt <- as.numeric(x[['Vamount']])
+    if (wraphue) coords@coords[,"H"] <- (coords@coords[,"H"] + Hamount) %% 360
+    else coords@coords[,"H"] <- coords@coords[,"H"] + Hamount
 
-        ccoords <- coords(colHSV(x[['color']])[[1]])
-
-        if (wraphue) newH <- (ccoords[[1,"H"]] + Hamnt) %% 360
-        else newH <- clamp(ccoords[[1,"H"]] + Hamnt, 0, 360)
-
-        colorspace::hex(HSV(H = newH,
-                            S = clamp(ccoords[[1,"S"]] + Samnt, 0, 1),
-                            V = clamp(ccoords[[1,"V"]] + Vamnt, 0, 1)))
-    })
+    coords@coords[,"S"] <- clamp(coords@coords[,"S"] + Samount, 0, 1)
+    coords@coords[,"V"] <- clamp(coords@coords[,"V"] + Vamount, 0, 1)
+    hex(coords)
 }
-
 
 
 # Working with Brightness -------------------------------------------------

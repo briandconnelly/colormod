@@ -17,23 +17,19 @@
 #' @export
 saturation <- function(color, space = "HSV") {
     assert_that(is.color(color))
-    assert_that(is.colorspace(space))
     assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-
-    warning("This function isn't currently implemented")
-
-    if (toupper(space) == "HSV") FALSE
-    else if (toupper(space) %in% c("HSL", "HLS")) FALSE
+    if(toupper(space) == "HSL") space = "HLS"
+    as.numeric(coordinates(color = color, space = toupper(space))@coords[,"S"])
 }
+
 
 #' @description \code{saturate} increases saturation by the given amount
 #' @rdname saturation
 #' @export
 saturate <- function(color, amount, space = "HSV") {
     assert_that(is.color(color))
-    assert_that(amount >=0 & amount <= 1)
-    assert_that(is.colorspace(space))
     assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
+    if(toupper(space) == "HSL") space = "HLS"
 
     if (toupper(space) == "HSV") {
         adjust_hsv(color = color, Samount = amount)
@@ -48,31 +44,16 @@ saturate <- function(color, amount, space = "HSV") {
 #' @rdname saturation
 #' @export
 desaturate <- function(color, amount, space = "HSV") {
-    assert_that(is.color(color))
-    assert_that(amount >=0 & amount <= 1)
-    assert_that(is.colorspace(space))
-    assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-
-    if (toupper(space) == "HSV") {
-        adjust_hsv(color = color, Samount = -1 * amount)
-    }
-    else if (toupper(space) %in% c("HSL", "HLS")) {
-        adjust_hsl(color = color, Samount = -1 * amount)
-    }
+    saturate(color = color, amount = -1 * amount, space = space)
 }
+
 
 #' @description \code{greyscale} fully desaturates the color
 #' @rdname saturation
 #' @aliases grayscale
 #' @export
 greyscale <- function(color, space = "HSV") {
-    assert_that(is.color(color))
-    assert_that(is.colorspace(space))
-    assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-
-    if (toupper(space) == "HSV") adjust_hsv(color = color, Samount = -1)
-    else if (toupper(space) %in% c("HSL", "HLS")) adjust_hsl(color = color,
-                                                             Samount = -1)
+    saturate(color = color, amount = -1, space = space)
 }
 
 #' @export

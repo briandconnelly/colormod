@@ -17,10 +17,7 @@
 #' range [0,360].
 #' @aliases adjust_hls
 #' @importFrom assertthat assert_that
-#' @importFrom assertthat are_equal
 #' @importFrom assertthat is.flag
-#' @importFrom colorspace coords
-#' @importFrom colorspace HLS
 #' @importFrom colorspace hex
 #' @export
 #'
@@ -35,30 +32,15 @@ adjust_hsl <- function(color, Hamount = 0, Samount = 0, Lamount = 0,
     assert_that(is.numeric(Hamount), is.numeric(Samount), is.numeric(Lamount))
     assert_that(is.flag(wraphue))
 
-    adjustments <- data.frame(color = color, Hamount = Hamount,
-                              Samount = Samount, Lamount = Lamount)
+    coords <- coordinates(color = color, space = "HLS")
 
-    apply(adjustments, 1, function(x) {
-        Hamnt <- as.numeric(x[['Hamount']])
-        Samnt <- as.numeric(x[['Samount']])
-        Lamnt <- as.numeric(x[['Lamount']])
+    if (wraphue) coords@coords[,"H"] <- (coords@coords[,"H"] + Hamount) %% 360
+    else coords@coords[,"H"] <- coords@coords[,"H"] + Hamount
 
-        ccoords <- coords(colHSL(x[['color']])[[1]])
-
-        if (wraphue) newH <- (ccoords[[1,"H"]] + Hamnt) %% 360
-        else newH <- clamp(ccoords[[1,"H"]] + Hamnt, 0, 360)
-
-        colorspace::hex(HLS(H = newH,
-                            L = clamp(ccoords[[1,"L"]] + Lamnt, 0, 1),
-                            S = clamp(ccoords[[1,"S"]] + Samnt, 0, 1)))
-    })
+    coords@coords[,"S"] <- clamp(coords@coords[,"S"] + Samount, 0, 1)
+    coords@coords[,"L"] <- clamp(coords@coords[,"L"] + Lamount, 0, 1)
+    hex(coords)
 }
 
 #' @export
 adjust_hls <- adjust_hsl
-
-
-
-# Working with Lightness --------------------------------------------------
-
-# TODO

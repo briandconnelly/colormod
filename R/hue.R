@@ -18,31 +18,29 @@
 #'
 hue <- function(color, space = "HSV") {
     assert_that(is.color(color))
-    assert_that(is.colorspace(space))
     assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-
-    warning("This function isn't currently implemented")
-
-    if (toupper(space) == "HSV") FALSE
-    else if (toupper(space) %in% c("HSL", "HLS")) FALSE
+    if(toupper(space) == "HSL") space = "HLS"
+    as.numeric(coordinates(color = color, space = toupper(space))@coords[,"H"])
 }
 
 
 #' @description \code{complement} returns a color's complement, which is the hue
 #' adjusted by 180 degrees
 #' @rdname hue
+#' @importFrom colorspace hex
 #' @export
 #' @examples
 #' complement("orange", space = "HSL")
 #'
 complement <- function(color, space = "HSV", wrap = TRUE) {
     assert_that(is.color(color))
-    assert_that(is.colorspace(space))
     assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
+    if(toupper(space) == "HSL") space = "HLS"
 
-    if (toupper(space) == "HSV") adjust_hsv(color = color, Hamount = 180,
-                                            wraphue = wrap)
-    else if (toupper(space) %in% c("HSL", "HLS")) adjust_hsl(color = color,
-                                                             Hamount = 180,
-                                                             wraphue = wrap)
+    if (toupper(space) == "HSV") {
+        adjust_hsv(color = color, Hamount = 180)
+    }
+    else if (toupper(space) %in% c("HSL", "HLS")) {
+        adjust_hsl(color = color, Hamount = 180)
+    }
 }

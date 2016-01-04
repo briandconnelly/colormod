@@ -1,15 +1,14 @@
 #' @title Color mixing
 #' @description \code{mix} mixes two colors together
 #'
-#' @param color1 The first color
-#' @param color2 The second color
+#' @param color1 One or more colors, either hex or named
+#' @param color2 One or more colors, either hex or named
 #' @param amount The amount of color2 to add. For \code{shade} and \code{tint}, this is the amount of black and white, respectively, to add.
 #' @seealso \code{\link[colorspace]{mixcolor}}
 #'
-#' @return The mixed color as a hexadecimal string
+#' @return The mixed colors as hexadecimal strings
 #' @importFrom assertthat assert_that
 #' @importFrom colorspace hex
-#' @importFrom colorspace hex2RGB
 #' @importFrom colorspace mixcolor
 #' @export
 #'
@@ -20,8 +19,9 @@ mix <- function(color1, color2, amount = 0.5) {
     assert_that(is.color(color1), is.color(color2))
     assert_that(is.numeric(amount), amount >= 0, amount <= 1.0)
 
-    hex(mixcolor(alpha = amount, color1 = colRGB(color1),
-                 color2 = colRGB(color2)))
+    hex(mixcolor(alpha = amount,
+                 color1 = coordinates(color1),
+                 color2 = coordinates(color2)))
 }
 
 

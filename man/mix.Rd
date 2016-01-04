@@ -13,14 +13,14 @@ shade(color, amount)
 tint(color, amount)
 }
 \arguments{
-\item{color1}{The first color}
+\item{color1}{One or more colors, either hex or named}
 
-\item{color2}{The second color}
+\item{color2}{One or more colors, either hex or named}
 
 \item{amount}{The amount of color2 to add. For \code{shade} and \code{tint}, this is the amount of black and white, respectively, to add.}
 }
 \value{
-The mixed color as a hexadecimal string
+The mixed colors as hexadecimal strings
 }
 \description{
 \code{mix} mixes two colors together

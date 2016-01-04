@@ -9,9 +9,7 @@
 #'
 #' @return The adjusted color as a hexadecimal string
 #' @importFrom assertthat assert_that
-#' @importFrom colorspace coords
 #' @importFrom colorspace hex
-#' @importFrom colorspace sRGB
 #' @export
 #'
 #' @examples
@@ -20,24 +18,13 @@
 #'
 adjust_rgb <- function(color, Ramount = 0, Gamount = 0, Bamount = 0) {
     assert_that(is.color(color))
-    assert_that(is.numeric(Ramount), Ramount >= 0, Ramount <= 1)
-    assert_that(is.numeric(Gamount), Gamount >= 0, Gamount <= 1)
-    assert_that(is.numeric(Bamount), Bamount >= 0, Bamount <= 1)
+    assert_that(is.numeric(Ramount), is.numeric(Gamount), is.numeric(Bamount))
 
-    adjustments <- data.frame(color = color, Ramount = Ramount,
-                              Gamount = Gamount, Bamount = Bamount)
-
-    apply(adjustments, 1, function(x) {
-        Ramnt <- as.numeric(x[['Ramount']])
-        Gamnt <- as.numeric(x[['Gamount']])
-        Bamnt <- as.numeric(x[['Bamount']])
-
-        ccoords <- coords(colRGB(x[['color']])[[1]])
-
-        colorspace::hex(sRGB(R = clamp(ccoords[[1,"R"]] + Ramnt, 0, 1),
-                             G = clamp(ccoords[[1,"G"]] + Gamnt, 0, 1),
-                             B = clamp(ccoords[[1,"B"]] + Bamnt, 0, 1)))
-    })
+    coords <- coordinates(color = color, space = "RGB")
+    coords@coords[,"R"] <- clamp(coords@coords[,"R"] + Ramount, 0, 1)
+    coords@coords[,"G"] <- clamp(coords@coords[,"G"] + Gamount, 0, 1)
+    coords@coords[,"B"] <- clamp(coords@coords[,"B"] + Bamount, 0, 1)
+    hex(coords)
 }
 
 

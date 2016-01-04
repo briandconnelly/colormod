@@ -14,7 +14,7 @@
 #' is.colorspace('hsv')
 #'
 is.colorspace <- function(x) {
-    toupper(x) %in% c("RGB", "HSV", "HSL", "HLS")
+    toupper(x) %in% c("RGB", "SRGB", "HSV", "HSL", "HLS")
 }
 
 #' @importFrom assertthat on_failure

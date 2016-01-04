@@ -9,7 +9,6 @@
 #' @importFrom assertthat assert_that
 #' @importFrom colorspace hex
 #' @importFrom colorspace sRGB
-#' @importFrom grDevices col2rgb
 #' @export
 #'
 #' @examples
@@ -17,7 +16,9 @@
 #'
 invert <- function(color, amount = 1) {
     assert_that(is.color(color))
-    assert_that(is.numeric(amount), amount >= 0, amount <= 1.0)
-    x <- (255 - col2rgb(color)) / 255
-    hex(sRGB(R = x[["red", 1]], G = x[["green", 1]], B = x[["blue", 1]]))
+    coords <- coordinates(color = color, space = "sRGB")
+    coords@coords[,"R"] <- clamp(1 - coords@coords[,"R"], 0, 1)
+    coords@coords[,"G"] <- clamp(1 - coords@coords[,"G"], 0, 1)
+    coords@coords[,"B"] <- clamp(1 - coords@coords[,"B"], 0, 1)
+    hex(coords)
 }
