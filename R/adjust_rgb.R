@@ -9,7 +9,6 @@
 #'
 #' @return The adjusted color(s) as a hexadecimal string
 #' @importFrom assertthat assert_that
-#' @importFrom colorspace hex
 #' @export
 #'
 #' @examples
@@ -17,14 +16,8 @@
 #' adjust_red('#00FFFF', amount = 0.1)
 #'
 adjust_rgb <- function(color, Ramount = 0, Gamount = 0, Bamount = 0) {
-    assert_that(is.color(color))
-    assert_that(is.numeric(Ramount), is.numeric(Gamount), is.numeric(Bamount))
-
-    coords <- coordinates(color = color, space = "RGB")
-    coords@coords[,"R"] <- clamp(coords@coords[,"R"] + Ramount, 0, 1)
-    coords@coords[,"G"] <- clamp(coords@coords[,"G"] + Gamount, 0, 1)
-    coords@coords[,"B"] <- clamp(coords@coords[,"B"] + Bamount, 0, 1)
-    colorspace::hex(coords)
+    #TODO
+    stop("This function isn't implemented!")
 }
 
 

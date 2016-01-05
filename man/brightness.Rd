@@ -2,20 +2,14 @@
 % Please edit documentation in R/brightness.R
 \name{brightness}
 \alias{adjust_brightness}
-\alias{adjust_lightness}
 \alias{brightness}
 \alias{darken}
 \alias{lighten}
-\alias{lightness}
 \title{View or adjust a color's brightness/lightness}
 \usage{
 brightness(color)
 
-lightness(color)
-
 adjust_brightness(color, amount)
-
-adjust_lightness(color, amount)
 
 lighten(color, amount)
 
@@ -33,14 +27,8 @@ The adjusted color(s) as hexadecimal strings
 \code{brightness} returns the color's brightness in HSV
 space [0,1]
 
-\code{lightness} returns the color's lightness in HSL
-space [0,1]
-
 \code{adjust_brightness} Increases or decreases the color's
 brightness in HSV space
-
-\code{adjust_lightness} Increases or decreases the color's
-lightness in HSL space
 
 \code{lighten} increases the brightness of the color by the
 given amount in HSV space

@@ -6,21 +6,16 @@
 \alias{hue}
 \title{View or adjust a color's hue}
 \usage{
-hue(color, space = "HSV")
+hue(color)
 
-adjust_hue(color, amount, space = "HSV", wrap = TRUE)
+adjust_hue(color, amount)
 
-complement(color, space = "HSV", wrap = TRUE)
+complement(color)
 }
 \arguments{
 \item{color}{One or more colors, either hex or named}
 
-\item{space}{The colorspace to use, "\code{HSV}" (default) or "\code{HSL}"}
-
 \item{amount}{Amount to adjust hue by [0,1]}
-
-\item{wrap}{Whether or not the resulting hue should be constrained to
-[0,360] (default: \code{TRUE})}
 }
 \value{
 The adjusted color(s) as hexadecimal strings
@@ -36,7 +31,7 @@ adjusted by 180 degrees
 \examples{
 hue("orange")
 
-complement("orange", space = "HSL")
+complement("orange")
 
 }
 

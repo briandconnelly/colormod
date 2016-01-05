@@ -1,10 +1,7 @@
 #' @title View or adjust a color's hue
 #'
 #' @param color One or more colors, either hex or named
-#' @param space The colorspace to use, "\code{HSV}" (default) or "\code{HSL}"
 #' @param amount Amount to adjust hue by [0,1]
-#' @param wrap Whether or not the resulting hue should be constrained to
-#' [0,360] (default: \code{TRUE})
 #'
 #' @return The adjusted color(s) as hexadecimal strings
 #' @rdname hue
@@ -17,37 +14,25 @@
 #' @examples
 #' hue("orange")
 #'
-hue <- function(color, space = "HSV") {
-    assert_that(is.color(color))
-    assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-    as.numeric(coordinates(color = color, space = toupper(space))@coords[,"H"])
-}
+hue <- function(color) as.numeric(rgb2hsv(col2rgb(color))["h",])
 
 
 #' @description \code{adjust_hue} Increases or decreases the color's hue
 #' @rdname hue
 #' @export
-adjust_hue <- function(color, amount, space = "HSV", wrap = TRUE) {
-    assert_that(is.color(color))
-    assert_that(toupper(space) %in% c("HSV", "HSL", "HLS"))
-
-    if (toupper(space) == "HSV") {
-        adjust_hsv(color = color, Hamount = amount, wraphue = wrap)
-    }
-    else if (toupper(space) %in% c("HSL", "HLS")) {
-        adjust_hsl(color = color, Hamount = amount, wraphue = wrap)
-    }
-}
+adjust_hue <- function(color, amount) adjust_hsv(color = color,
+                                                 Hamount = amount)
 
 
 #' @description \code{complement} returns a color's complement, which is the hue
 #' adjusted by 180 degrees
 #' @rdname hue
-#' @importFrom colorspace hex
 #' @export
 #' @examples
-#' complement("orange", space = "HSL")
+#' complement("orange")
 #'
-complement <- function(color, space = "HSV", wrap = TRUE) {
-    adjust_hue(color = color, amount = 180, space = space, wrap = wrap)
+complement <- function(color) {
+    x <- col2hsv(color)
+    x["h",] <- (x["h",] + 0.5) %% 1
+    hsv2col(x)
 }

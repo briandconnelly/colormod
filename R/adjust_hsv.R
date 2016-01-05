@@ -7,8 +7,6 @@
 #' @param Hamount Amount to adjust hue (default: 0)
 #' @param Samount Amount to adjust saturation (default: 0)
 #' @param Vamount Amount to adjust value/brightness (default: 0)
-#' @param wraphue Whether or not the resulting hue should be constrained to
-#' [0,360) (default: TRUE)
 #'
 #' @return The adjusted color(s) as hexadecimal strings
 #' @note Adjusted saturation and brightness are clamped to the range [0,1].
@@ -16,7 +14,6 @@
 #' range [0,360].
 #' @importFrom assertthat assert_that
 #' @importFrom assertthat is.flag
-#' @importFrom colorspace hex
 #' @export
 #'
 #' @examples
@@ -25,18 +22,13 @@
 #'
 #' lighten('orange', 0.2)
 #'
-adjust_hsv <- function(color, Hamount = 0, Samount = 0, Vamount = 0,
-                       wraphue = TRUE) {
-    assert_that(is.color(color))
-    assert_that(is.numeric(Hamount), is.numeric(Samount), is.numeric(Vamount))
-    assert_that(is.flag(wraphue))
-
-    coords <- coordinates(color = color, space = "HSV")
-
-    if (wraphue) coords@coords[,"H"] <- (coords@coords[,"H"] + Hamount) %% 360
-    else coords@coords[,"H"] <- coords@coords[,"H"] + Hamount
-
-    coords@coords[,"S"] <- clamp(coords@coords[,"S"] + Samount, 0, 1)
-    coords@coords[,"V"] <- clamp(coords@coords[,"V"] + Vamount, 0, 1)
-    colorspace::hex(coords)
+# TODO: hue should wrap around. problem 1 + 0 -> 0, which is ok, but produces different hex values
+adjust_hsv <- function(color, Hamount = 0, Samount = 0, Vamount = 0) {
+    x <- col2hsv(color)
+    # TODO assertions
+    x["h",] <- clamp(x["h",] + Hamount, 0, 1)
+    #x["h",] <- (x["h",] + 0.5) %% 1
+    x["s",] <- clamp(x["s",] + Samount, 0, 1)
+    x["v",] <- clamp(x["v",] + Vamount, 0, 1)
+    hsv2col(x)
 }

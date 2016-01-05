@@ -14,7 +14,6 @@
 #'
 colorproperty <- function(color, space, property) {
     assert_that(is.color(color))
-    assert_that(is.colorspace(space))
     as.numeric(coordinates(color = color, space = space)@coords[,property])
 }
 

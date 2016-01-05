@@ -4,7 +4,7 @@
 \alias{adjust_hsv}
 \title{Adjust color properties in HSV space}
 \usage{
-adjust_hsv(color, Hamount = 0, Samount = 0, Vamount = 0, wraphue = TRUE)
+adjust_hsv(color, Hamount = 0, Samount = 0, Vamount = 0)
 }
 \arguments{
 \item{color}{One or more colors, either hex or named}
@@ -14,9 +14,6 @@ adjust_hsv(color, Hamount = 0, Samount = 0, Vamount = 0, wraphue = TRUE)
 \item{Samount}{Amount to adjust saturation (default: 0)}
 
 \item{Vamount}{Amount to adjust value/brightness (default: 0)}
-
-\item{wraphue}{Whether or not the resulting hue should be constrained to
-[0,360) (default: TRUE)}
 }
 \value{
 The adjusted color(s) as hexadecimal strings

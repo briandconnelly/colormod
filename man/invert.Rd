@@ -4,12 +4,10 @@
 \alias{invert}
 \title{Invert a color}
 \usage{
-invert(color, amount = 1)
+invert(color)
 }
 \arguments{
 \item{color}{The color to invert}
-
-\item{amount}{(currently inactive) The amount by which to invert (0 = none, 1 = full (default))}
 }
 \value{
 The inverted color as a hexadecimal string

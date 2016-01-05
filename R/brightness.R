@@ -15,38 +15,15 @@
 #' space [0,1]
 #' @rdname brightness
 #' @export
-brightness <- function(color) {
-    assert_that(is.color(color))
-    as.numeric(coordinates(color = color, space = "HSV")@coords[,"V"])
-}
-
-
-#' @description \code{lightness} returns the color's lightness in HSL
-#' space [0,1]
-#' @rdname brightness
-#' @export
-lightness <- function(color) {
-    assert_that(is.color(color))
-    as.numeric(coordinates(color = color, space = "HLS")@coords[,"L"])
-}
+brightness <- function(color) as.numeric(rgb2hsv(col2rgb(color))["v",])
 
 
 #' @description \code{adjust_brightness} Increases or decreases the color's
 #' brightness in HSV space
 #' @rdname brightness
 #' @export
-adjust_brightness <- function(color, amount) {
-    adjust_hsv(color = color, Vamount = amount)
-}
-
-
-#' @description \code{adjust_lightness} Increases or decreases the color's
-#' lightness in HSL space
-#' @rdname brightness
-#' @export
-adjust_lightness <- function(color, amount) {
-    adjust_hsl(color = color, Lamount = amount)
-}
+adjust_brightness <- function(color, amount) adjust_hsv(color = color,
+                                                        Vamount = amount)
 
 
 #' @description \code{lighten} increases the brightness of the color by the

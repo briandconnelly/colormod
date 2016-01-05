@@ -9,18 +9,16 @@
 \alias{saturation}
 \title{View or adjust a color's saturation}
 \usage{
-saturation(color, space = "HSV")
+saturation(color)
 
-saturate(color, amount, space = "HSV")
+saturate(color, amount)
 
-desaturate(color, amount, space = "HSV")
+desaturate(color, amount)
 
-greyscale(color, space = "HSV")
+greyscale(color, amount)
 }
 \arguments{
 \item{color}{One or more colors, either hex or named}
-
-\item{space}{The colorspace to use, "\code{HSV}" (default) or "\code{HSL}"}
 
 \item{amount}{Amount to adjust saturation by [0,1]}
 }
