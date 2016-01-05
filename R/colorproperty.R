@@ -10,27 +10,23 @@
 #' @export
 #'
 #' @examples
-#' colorproperty(color = "mediumpurple3", space = "HSV", property = "S")
-#'
-colorproperty <- function(color, space, property) {
-    assert_that(is.color(color))
-    as.numeric(coordinates(color = color, space = space)@coords[,property])
-}
+#' #TODO
 
 
 # RGB Properties ----------------------------------------------------------
 
 #' @export
 #' @rdname colorproperty
-red <- function(color) colorproperty(color = color, space = "RGB",
-                                     property = "R")
+red <- function(color) as.numeric(col2rgb(color)["red",])
 
 #' @export
 #' @rdname colorproperty
-green <- function(color) colorproperty(color = color, space = "RGB",
-                                       property = "G")
+green <- function(color) as.numeric(col2rgb(color)["green",])
 
 #' @export
 #' @rdname colorproperty
-blue <- function(color) colorproperty(color = color, space = "RGB",
-                                      property = "B")
+blue <- function(color) as.numeric(col2rgb(color)["blue",])
+
+#' @export
+#' @rdname colorproperty
+alpha <- function(color) as.numeric(col2rgb(color, alpha = TRUE)["alpha",])

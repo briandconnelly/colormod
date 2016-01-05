@@ -15,6 +15,7 @@
 #' hue("orange")
 #'
 hue <- function(color) as.numeric(rgb2hsv(col2rgb(color))["h",])
+# TODO Should hue be 0..360 or 0..1?
 
 
 #' @description \code{adjust_hue} Increases or decreases the color's hue
