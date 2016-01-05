@@ -7,16 +7,22 @@
 \alias{lighten}
 \title{View or adjust a color's brightness/lightness}
 \usage{
-brightness(color)
+brightness(col)
 
-adjust_brightness(color, amount)
+adjust_brightness(col, amount)
 
-lighten(color, amount)
+lighten(col, amount)
 
-darken(color, amount)
+darken(col, amount)
 }
 \arguments{
-\item{color}{One or more colors, either hex or named}
+\item{col}{Vector containing any of the three kinds of \R color
+specifications: \enumerate{
+    \item a color name (see {\link[grDevices]{colors}})
+    \item a hexadecimal string of the form "\code{#rrggbb}" (see
+    \code{\link[grDevices]{rgb}})
+    \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
+}}
 
 \item{amount}{Amount to adjust brightness or lightness by [0,1]}
 }

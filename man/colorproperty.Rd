@@ -7,16 +7,22 @@
 \alias{red}
 \title{Get values of color properties in different color spaces}
 \usage{
-red(color)
+red(col)
 
-green(color)
+green(col)
 
-blue(color)
+blue(col)
 
-alpha(color)
+alpha(col)
 }
 \arguments{
-\item{color}{One or more colors, either hex or named}
+\item{col}{Vector containing any of the three kinds of \R color
+specifications: \enumerate{
+    \item a color name (see {\link[grDevices]{colors}})
+    \item a hexadecimal string of the form "\code{#rrggbb}" (see
+    \code{\link[grDevices]{rgb}})
+    \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
+}}
 
 \item{space}{The color space}
 

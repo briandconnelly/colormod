@@ -1,14 +1,13 @@
 #' Invert a color
 #'
-#' \code{invert} inverts each channel of a color
+#' \code{invert} inverts each channel of a color in RGB space
 #'
-#' @param color The color to invert
+#' @inheritParams col2hsv
 #'
 #' @return The inverted color as a hexadecimal string
-#' @importFrom assertthat assert_that
 #' @export
 #'
 #' @examples
 #' invert('#FF00FF')
 #'
-invert <- function(color) rgb2hex(255 - col2rgb(mycolor))
+invert <- function(col) rgb2hex(255 - col2rgb(col))

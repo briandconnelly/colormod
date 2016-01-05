@@ -4,21 +4,32 @@
 \alias{col2hsv}
 \title{Color to HSV Conversion}
 \usage{
-col2hsv(color)
+col2hsv(col)
 }
 \arguments{
-\item{color}{vector of any of the three kinds of R color specifications TODO (see col2rgb)}
+\item{col}{Vector containing any of the three kinds of \R color
+specifications: \enumerate{
+    \item a color name (see {\link[grDevices]{colors}})
+    \item a hexadecimal string of the form "\code{#rrggbb}" (see
+    \code{\link[grDevices]{rgb}})
+    \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
+}}
 }
 \value{
 A matrix with a column for each color. The three rows of the matrix
-indicate hue, saturation and value and are named "\code{h}", "\code{s}", and
-"\code{v}" accordingly.
+indicate hue ("\code{h}"), saturation ("\code{s}"), and value ("\code{v}"),
+which is also referred to as \emph{brightness}).
 }
 \description{
-TODO
+Convert \R colors to HSV (hue/saturation/value)
+}
+\note{
+The alpha channel is stripped from hexadecimal strings where one is
+included
 }
 \examples{
-TODO
+col2hsv("red")
+col2hsv(c("#FF0000", "mediumpurple3", 2, "steelblue4"))
 
 }
 

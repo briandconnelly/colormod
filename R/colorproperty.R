@@ -1,6 +1,6 @@
 #' Get values of color properties in different color spaces
 #'
-#' @param color One or more colors, either hex or named
+#' @inheritParams col2hsv
 #' @param space The color space
 #' @param property The property value to get. For example, when \code{space} is
 #' \code{HSV}, \code{property} can be "H", "S", or "V".
@@ -17,16 +17,16 @@
 
 #' @export
 #' @rdname colorproperty
-red <- function(color) as.numeric(col2rgb(color)["red",])
+red <- function(col) as.numeric(col2rgb(col)["red",])
 
 #' @export
 #' @rdname colorproperty
-green <- function(color) as.numeric(col2rgb(color)["green",])
+green <- function(col) as.numeric(col2rgb(col)["green",])
 
 #' @export
 #' @rdname colorproperty
-blue <- function(color) as.numeric(col2rgb(color)["blue",])
+blue <- function(col) as.numeric(col2rgb(col)["blue",])
 
 #' @export
 #' @rdname colorproperty
-alpha <- function(color) as.numeric(col2rgb(color, alpha = TRUE)["alpha",])
+alpha <- function(col) as.numeric(col2rgb(col, alpha = TRUE)["alpha",])

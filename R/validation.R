@@ -5,6 +5,7 @@
 #' @rdname is.color
 #'
 #' @param x A color string
+#' @inheritParams col2hsv
 #' @param allow_alpha Whether or not alpha parameters are allowed in hex color
 #' strings (default: \code{TRUE})
 #'
@@ -23,7 +24,7 @@ is.color <- function(x, allow_alpha = TRUE) {
     }
     else hex <- grepl(pattern = "^#[a-fA-F0-9]{6}$", x = x, ignore.case = TRUE)
 
-    named <- x %in% colors()
+    named <- x %in% grDevices::colors()
     all(hex | named)
 }
 
@@ -53,11 +54,10 @@ assertthat::on_failure(is.hex.color) <- function(call, env) {
 #' @description \code{is.named.color} checks whether input is a valid named
 #' color
 #' @rdname is.color
-#' @importFrom grDevices colors
 #' @export
 #' @seealso \code{\link{colors}}
 is.named.color <- function(x) {
-    all(x %in% colors())
+    all(x %in% grDevices::colors())
 }
 
 #' @importFrom assertthat on_failure

@@ -4,16 +4,22 @@
 \alias{invert}
 \title{Invert a color}
 \usage{
-invert(color)
+invert(col)
 }
 \arguments{
-\item{color}{The color to invert}
+\item{col}{Vector containing any of the three kinds of \R color
+specifications: \enumerate{
+    \item a color name (see {\link[grDevices]{colors}})
+    \item a hexadecimal string of the form "\code{#rrggbb}" (see
+    \code{\link[grDevices]{rgb}})
+    \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
+}}
 }
 \value{
 The inverted color as a hexadecimal string
 }
 \description{
-\code{invert} inverts each channel of a color
+\code{invert} inverts each channel of a color in RGB space
 }
 \examples{
 invert('#FF00FF')

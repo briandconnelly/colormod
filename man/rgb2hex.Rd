@@ -4,10 +4,16 @@
 \alias{rgb2hex}
 \title{RGB to Hex Color Conversion}
 \usage{
-rgb2hex(color, alpha = FALSE)
+rgb2hex(col, alpha = FALSE)
 }
 \arguments{
-\item{color}{TODO}
+\item{col}{Vector containing any of the three kinds of \R color
+specifications: \enumerate{
+    \item a color name (see {\link[grDevices]{colors}})
+    \item a hexadecimal string of the form "\code{#rrggbb}" (see
+    \code{\link[grDevices]{rgb}})
+    \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
+}}
 
 \item{alpha}{TODO}
 }

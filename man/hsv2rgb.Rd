@@ -4,13 +4,19 @@
 \alias{hsv2rgb}
 \title{HSV to RGB conversion}
 \usage{
-hsv2rgb(color, alpha = FALSE)
+hsv2rgb(col)
 }
 \arguments{
-\item{color}{TODO copy from col2rgb}
+\item{col}{Vector containing any of the three kinds of \R color
+specifications: \enumerate{
+    \item a color name (see {\link[grDevices]{colors}})
+    \item a hexadecimal string of the form "\code{#rrggbb}" (see
+    \code{\link[grDevices]{rgb}})
+    \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
+}}
 }
 \value{
-An integer matrix with three or four (for \code{alpha = TRUE}) rows
+An integer matrix with three rows
 and number of columns the length of col. If col has names these are used as
 the column names of the return value.
 }

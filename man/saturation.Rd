@@ -9,16 +9,22 @@
 \alias{saturation}
 \title{View or adjust a color's saturation}
 \usage{
-saturation(color)
+saturation(col)
 
-saturate(color, amount)
+saturate(col, amount)
 
-desaturate(color, amount)
+desaturate(col, amount)
 
-greyscale(color, amount)
+greyscale(col, amount)
 }
 \arguments{
-\item{color}{One or more colors, either hex or named}
+\item{col}{Vector containing any of the three kinds of \R color
+specifications: \enumerate{
+    \item a color name (see {\link[grDevices]{colors}})
+    \item a hexadecimal string of the form "\code{#rrggbb}" (see
+    \code{\link[grDevices]{rgb}})
+    \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
+}}
 
 \item{amount}{Amount to adjust saturation by [0,1]}
 }

@@ -4,13 +4,20 @@
 \alias{hsv2col}
 \title{HSV to R color conversion}
 \usage{
-hsv2col(color)
+hsv2col(col)
 }
 \arguments{
-\item{color}{TODO}
+\item{col}{Vector containing any of the three kinds of \R color
+specifications: \enumerate{
+    \item a color name (see {\link[grDevices]{colors}})
+    \item a hexadecimal string of the form "\code{#rrggbb}" (see
+    \code{\link[grDevices]{rgb}})
+    \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
+}}
 }
 \value{
-A vector of colors corresponding to the given values in HSV space.
+A vector of colors (as hexadecimal strings) corresponding to the
+given values in HSV space
 }
 \description{
 \code{hsv2col} transforms colors from HSV space into   TODO

@@ -4,16 +4,22 @@
 \alias{adjust_hsv}
 \title{Adjust color properties in HSV space}
 \usage{
-adjust_hsv(color, Hamount = 0, Samount = 0, Vamount = 0)
+adjust_hsv(col, Hamount = 0, Samount = 0, Vamount = 0)
 }
 \arguments{
-\item{color}{One or more colors, either hex or named}
+\item{col}{Vector containing any of the three kinds of \R color
+specifications: \enumerate{
+    \item a color name (see {\link[grDevices]{colors}})
+    \item a hexadecimal string of the form "\code{#rrggbb}" (see
+    \code{\link[grDevices]{rgb}})
+    \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
+}}
 
-\item{Hamount}{Amount to adjust hue (default: 0)}
+\item{Hamount}{Amount to adjust hue (default: \code{0})}
 
-\item{Samount}{Amount to adjust saturation (default: 0)}
+\item{Samount}{Amount to adjust saturation (default: \code{0})}
 
-\item{Vamount}{Amount to adjust value/brightness (default: 0)}
+\item{Vamount}{Amount to adjust value/brightness (default: \code{0})}
 }
 \value{
 The adjusted color(s) as hexadecimal strings

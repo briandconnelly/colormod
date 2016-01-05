@@ -1,17 +1,18 @@
 # TODO: document (how to write the fancy R?)
 #' @title HSV to R color conversion
-#' 
+#'
 #' @description \code{hsv2col} transforms colors from HSV space into   TODO
 #'
-#' @param color TODO
+#' @inheritParams col2hsv
 #'
-#' @return A vector of colors corresponding to the given values in HSV space.
+#' @return A vector of colors (as hexadecimal strings) corresponding to the
+#' given values in HSV space
 #' @export
 #'
 #' @examples
 #' TODO
 #'
-hsv2col <- function(color) {
+hsv2col <- function(col) {
     apply(color, 2, function(x) {
         hsv(h = x["h"], s = x["s"], v = x["v"])
     })

@@ -3,10 +3,10 @@
 #' @description \code{adjust_hsv} adjusts the properties of colors in HSV space
 #' (hue, saturation, and value/brightness)
 #'
-#' @param color One or more colors, either hex or named
-#' @param Hamount Amount to adjust hue (default: 0)
-#' @param Samount Amount to adjust saturation (default: 0)
-#' @param Vamount Amount to adjust value/brightness (default: 0)
+#' @inheritParams col2hsv
+#' @param Hamount Amount to adjust hue (default: \code{0})
+#' @param Samount Amount to adjust saturation (default: \code{0})
+#' @param Vamount Amount to adjust value/brightness (default: \code{0})
 #'
 #' @return The adjusted color(s) as hexadecimal strings
 #' @note Adjusted saturation and brightness are clamped to the range [0,1].
@@ -23,8 +23,8 @@
 #' lighten('orange', 0.2)
 #'
 # TODO: hue should wrap around. problem 1 + 0 -> 0, which is ok, but produces different hex values
-adjust_hsv <- function(color, Hamount = 0, Samount = 0, Vamount = 0) {
-    x <- col2hsv(color)
+adjust_hsv <- function(col, Hamount = 0, Samount = 0, Vamount = 0) {
+    x <- col2hsv(col)
     # TODO assertions
     x["h",] <- clamp(x["h",] + Hamount, 0, 1)
     #x["h",] <- (x["h",] + 0.5) %% 1

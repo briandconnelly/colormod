@@ -6,21 +6,27 @@
 \alias{tint}
 \title{Color mixing}
 \usage{
-mix(color1, color2, amount = 0.5)
+mix(col1, col2, amount = 0.5)
 
-shade(color, amount)
+shade(col, amount)
 
-tint(color, amount)
+tint(col, amount)
 }
 \arguments{
-\item{color1}{One or more colors, either hex or named}
+\item{col1}{One or more colors, either hex or named}
 
-\item{color2}{One or more colors, either hex or named}
+\item{col2}{One or more colors, either hex or named}
 
-\item{amount}{The amount of color2 to add. For \code{shade} and \code{tint},
+\item{amount}{The amount of \code{col2} to add. For \code{shade} and \code{tint},
 this is the amount of black and white, respectively, to add.}
 
-\item{color}{One or more colors, either hex or named}
+\item{col}{Vector containing any of the three kinds of \R color
+specifications: \enumerate{
+    \item a color name (see {\link[grDevices]{colors}})
+    \item a hexadecimal string of the form "\code{#rrggbb}" (see
+    \code{\link[grDevices]{rgb}})
+    \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
+}}
 }
 \value{
 The mixed colors as hexadecimal strings

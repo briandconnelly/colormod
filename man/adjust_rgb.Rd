@@ -8,24 +8,33 @@
 \title{Adjust the sRGB components of a color. The resulting components are clamped
 to the range [0,1].}
 \usage{
-adjust_rgb(color, Ramount = 0, Gamount = 0, Bamount = 0)
+adjust_rgb(col, Ramount = 0, Gamount = 0, Bamount = 0)
 
-adjust_red(color, amount)
+adjust_red(col, amount)
 
-adjust_green(color, amount)
+adjust_green(col, amount)
 
-adjust_blue(color, amount)
+adjust_blue(col, amount)
 }
 \arguments{
-\item{color}{The color}
+\item{col}{Vector containing any of the three kinds of \R color
+specifications: \enumerate{
+    \item a color name (see {\link[grDevices]{colors}})
+    \item a hexadecimal string of the form "\code{#rrggbb}" (see
+    \code{\link[grDevices]{rgb}})
+    \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
+}}
 
-\item{Ramount}{Amount to adjust the red component by ([0,1], default: 0)}
+\item{Ramount}{Amount to adjust the red component by ([0,1], default:
+\code{0})}
 
-\item{Gamount}{Amount to adjust the green component by ([0,1], default: 0)}
+\item{Gamount}{Amount to adjust the green component by ([0,1], default:
+\code{0})}
 
-\item{Bamount}{Amount to adjust the blue component by ([0,1], default: 0)}
+\item{Bamount}{Amount to adjust the blue component by ([0,1], default:
+\code{0})}
 
-\item{amount}{Amount to adjust the component by (default: 0)}
+\item{amount}{Amount to adjust the component by (default: \code{0})}
 }
 \value{
 The adjusted color(s) as a hexadecimal string

@@ -9,8 +9,8 @@ Description: colormod provides simple and consistent functions for extracting
 Depends: 
     R (>= 3.2)
 Imports: 
-    assertthat (>= 0.1),
-    colorspace (>= 1.2-6),
+    assertthat,
+    grDevices,
 Suggests:
     testthat
 License: BSD_2_clause + file LICENSE
