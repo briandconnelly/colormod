@@ -13,7 +13,7 @@ shade(col, amount)
 tint(col, amount)
 }
 \arguments{
-\item{col1}{One or more colors, either hex or named}
+\item{col1}{One or more colors, either hex or named TODO: update description}
 
 \item{col2}{One or more colors, either hex or named}
 

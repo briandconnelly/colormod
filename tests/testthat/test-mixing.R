@@ -1,11 +1,11 @@
 context("Color mixing")
 
-# TODO: try with named colors
-# TODO: try with vector
 test_that("mix works properly", {
     expect_equal(mix("#FF0000", "#0000FF", 0), "#FF0000")
     expect_equal(mix("#FF0000", "#0000FF", 1), "#0000FF")
     expect_equal(mix("#FF0000", "#0000FF", 0.5), "#800080")
+    expect_equal(mix(c('white', 'white'), c('black', 'black')),
+                 c("#808080", "#808080"))
 })
 
 test_that("tint works properly", {
