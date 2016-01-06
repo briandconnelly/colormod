@@ -2,7 +2,7 @@
 #'
 #' @inheritParams col2hsv
 #'
-#' @return The adjusted color(s) as hexadecimal strings
+#' @return The color(s) as hexadecimal strings
 #' @export
 #'
 #' @examples

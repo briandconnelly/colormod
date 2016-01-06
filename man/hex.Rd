@@ -16,7 +16,7 @@ specifications: \enumerate{
 }}
 }
 \value{
-The adjusted color(s) as hexadecimal strings
+The color(s) as hexadecimal strings
 }
 \description{
 Get a hex string representation of colors

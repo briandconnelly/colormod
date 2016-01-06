@@ -2,9 +2,25 @@
 % Please edit documentation in R/adjust_hsv.R
 \name{adjust_hsv}
 \alias{adjust_hsv}
-\title{Adjust color properties in HSV space}
+\alias{brighten}
+\alias{darken}
+\alias{desaturate}
+\alias{grayscale}
+\alias{greyscale}
+\alias{saturate}
+\title{Adjust a color's HSV components}
 \usage{
-adjust_hsv(col, Hamount = 0, Samount = 0, Vamount = 0)
+adjust_hsv(col, H = 0, S = 0, V = 0, mode = "relative")
+
+saturate(col, amount)
+
+desaturate(col, amount)
+
+greyscale(col, amount)
+
+brighten(col, amount)
+
+darken(col, amount)
 }
 \arguments{
 \item{col}{Vector containing any of the three kinds of \R color
@@ -15,30 +31,45 @@ specifications: \enumerate{
     \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
 }}
 
-\item{Hamount}{Amount to adjust hue (default: \code{0})}
+\item{H}{The adjustment in hue [-1,1]}
 
-\item{Samount}{Amount to adjust saturation (default: \code{0})}
+\item{S}{The adjustment in saturation [-1,1]}
 
-\item{Vamount}{Amount to adjust value/brightness (default: \code{0})}
+\item{V}{The adjustment in brightness [-1,1]}
+
+\item{mode}{Whether the adjustments set the value directly
+("\code{absolute}") or are added to the current value ("\code{relative}",
+default).}
+
+\item{amount}{The value of the adjustment}
 }
 \value{
 The adjusted color(s) as hexadecimal strings
 }
 \description{
-\code{adjust_hsv} adjusts the properties of colors in HSV space
-(hue, saturation, and value/brightness)
-}
-\note{
-Adjusted saturation and brightness are clamped to the range [0,1].
+These functions adjust a color's hue, saturation, and brightness
+(value).
 
-If \code{wraphue} is \code{FALSE}, resulting hue is clamped to the
-range [0,360].
+\code{adjust_hsv} adjusts hue, saturation, and brightness either
+by replacing the current value (\code{mode="absolute"}) or adding to it
+(\code{mode="relative"}, the default).
+
+\code{saturate} and \code{desaturate} increase and decrease
+saturation by the given amount, respectively
+
+\code{greyscale} (or \code{grayscale}) fully desaturates the
+color
+
+\code{brighten} and \code{darken} increase and decrease
+brightness by the given amount, respectively
 }
 \examples{
 # Decrease saturation of orange by 0.1
-adjust_hsv(color = "orange", Samount = -0.1)
+adjust_hsv(color = "orange", S = -0.1)
 
-lighten('orange', 0.2)
-
+}
+\seealso{
+\code{\link{hue}}, \code{\link{saturation}},
+\code{\link{brightness}}
 }
 

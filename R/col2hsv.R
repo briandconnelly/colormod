@@ -17,7 +17,10 @@
 #' @export
 #'
 #' @examples
+#' # Get HSV coordinates for red
 #' col2hsv("red")
+#' 
+#' # Get HSV coordinates for several different colors
 #' col2hsv(c("#FF0000", "mediumpurple3", 2, "steelblue4"))
 #'
 col2hsv <- function(col) {

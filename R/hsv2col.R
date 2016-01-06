@@ -13,7 +13,7 @@
 #' TODO
 #'
 hsv2col <- function(col) {
-    apply(color, 2, function(x) {
+    apply(col, 2, function(x) {
         hsv(h = x["h"], s = x["s"], v = x["v"])
     })
 }
