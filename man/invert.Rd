@@ -21,6 +21,9 @@ The inverted color as a hexadecimal string
 \description{
 \code{invert} inverts each channel of a color in RGB space
 }
+\note{
+Alpha channel values are be stripped from \code{col}
+}
 \examples{
 invert('#FF00FF')
 

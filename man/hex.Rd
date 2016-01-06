@@ -4,7 +4,7 @@
 \alias{hex}
 \title{Get a hex string representation of colors}
 \usage{
-hex(col, alpha)
+hex(col, alpha = FALSE)
 }
 \arguments{
 \item{col}{Vector containing any of the three kinds of \R color
@@ -15,7 +15,8 @@ specifications: \enumerate{
     \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
 }}
 
-\item{alpha}{Whether or not to include alpha channel values in the result.}
+\item{alpha}{Whether or not to include alpha channel values in the result
+(default: \code{FALSE}).}
 }
 \value{
 The color(s) as hexadecimal strings

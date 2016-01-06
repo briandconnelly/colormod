@@ -30,7 +30,7 @@ adjust_rgb <- function(col, r = NULL, g = NULL, b = NULL, mode = "relative") {
     if (!is.null(b)) assertthat::assert_that(is.numeric(b), b >= -1, b <= 1)
     assertthat::assert_that(tolower(mode) %in% c("relative", "absolute"))
 
-    x <- col2rgb(col = col, alpha = TRUE)
+    x <- col2rgb(col = col)
 
     if (tolower(mode) == "relative") {
         if (!is.null(r)) x["red",] <- clamp(x["red",] + round(r * 255),
