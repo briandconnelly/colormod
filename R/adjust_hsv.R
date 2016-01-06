@@ -18,7 +18,8 @@
 #'
 #' @return The adjusted color(s) as hexadecimal strings
 #' @seealso \code{\link{hue}}, \code{\link{saturation}},
-#' \code{\link{brightness}}
+#' \code{\link{brightness}} to these component values
+#' 
 #' @export
 #'
 #' @examples
@@ -26,10 +27,10 @@
 #' adjust_hsv(color = "orange", S = -0.1)
 #'
 adjust_hsv <- function(col, H = 0, S = 0, V = 0, mode = "relative") {
-    assert_that(is.numeric(H), H >= -1, H <= 1)
-    assert_that(is.numeric(S), S >= -1, S <= 1)
-    assert_that(is.numeric(V), V >= -1, V <= 1)
-    assert_that(tolower(mode) %in% c("relative", "absolute"))
+    assertthat::assert_that(is.numeric(H), H >= -1, H <= 1)
+    assertthat::assert_that(is.numeric(S), S >= -1, S <= 1)
+    assertthat::assert_that(is.numeric(V), V >= -1, V <= 1)
+    assertthat::assert_that(tolower(mode) %in% c("relative", "absolute"))
 
     x <- col2hsv(col)
     

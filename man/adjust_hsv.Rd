@@ -70,6 +70,6 @@ adjust_hsv(color = "orange", S = -0.1)
 }
 \seealso{
 \code{\link{hue}}, \code{\link{saturation}},
-\code{\link{brightness}}
+\code{\link{brightness}} to these component values
 }
 
