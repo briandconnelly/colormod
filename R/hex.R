@@ -9,4 +9,4 @@
 #' @examples
 #' hex("orange", alpha = FALSE)
 #'
-hex <- function(col) rgb2hex(col = col2rgb(col = col, alpha = alpha))
+hex <- function(col, alpha) rgb2hex(col = col2rgb(col = col, alpha = alpha))

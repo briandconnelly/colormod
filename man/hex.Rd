@@ -4,7 +4,7 @@
 \alias{hex}
 \title{Get a hex string representation of colors}
 \usage{
-hex(col)
+hex(col, alpha)
 }
 \arguments{
 \item{col}{Vector containing any of the three kinds of \R color

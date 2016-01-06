@@ -4,8 +4,11 @@
 #' color
 #' @rdname is.color
 #'
-#' @param x A color string
-#' @inheritParams col2hsv
+#' @param col Vector containing either: \enumerate{
+#'     \item a color name (see {\code{\link[grDevices]{colors}}})
+#'     \item a hexadecimal string of the form "\code{#rrggbb}" or
+#'     "\code{#rrggbbaa}"(see \code{\link[grDevices]{rgb}})
+#' }
 #' @param allow_alpha Whether or not alpha parameters are allowed in hex color
 #' strings (default: \code{TRUE})
 #'
@@ -39,10 +42,10 @@ assertthat::on_failure(is.color) <- function(call, env) {
 #' @rdname is.color
 #' @export
 is.hex.color <- function(x, allow_alpha = TRUE) {
-    if (allow_alpha) m <- grepl(pattern = "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{8})$",
-                                x = x, ignore.case = TRUE)
-    else m <- grepl(pattern = "^#[a-fA-F0-9]{6}$", x = x, ignore.case = TRUE)
-    all(m)
+    if (allow_alpha) p <- "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{8})$"
+    else p <- "^#[a-fA-F0-9]{6}$"
+
+    all(grepl(pattern = p, x = x, ignore.case = TRUE))
 }
 
 #' @importFrom assertthat on_failure
@@ -62,5 +65,5 @@ is.named.color <- function(x) {
 
 #' @importFrom assertthat on_failure
 assertthat::on_failure(is.named.color) <- function(call, env) {
-    paste0(deparse(call$x), " is not a named color known by R")
+    paste0(deparse(call$x), " is not a valid color name. See colors().")
 }
