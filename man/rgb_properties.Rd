@@ -5,9 +5,7 @@
 \alias{blue}
 \alias{green}
 \alias{red}
-\title{TODO: support maxColorValue
-TODO: col parameter can allow a #rrggbbaa string
-View a color's RGB components}
+\title{View a color's RGB components}
 \usage{
 red(col)
 
@@ -21,17 +19,17 @@ alpha(col)
 \item{col}{Vector containing any of the three kinds of \R color
 specifications: \enumerate{
     \item a color name (see {\link[grDevices]{colors}})
-    \item a hexadecimal string of the form "\code{#rrggbb}" (see
-    \code{\link[grDevices]{rgb}})
+    \item a hexadecimal string of the form "\code{#rrggbb}" or
+    "\code{#rrggbbaa}"(see \code{\link[grDevices]{rgb}})
     \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
 }}
 }
 \value{
-A number indicating the component value [0,255]
+A number indicating the component value [0,1]
 }
 \description{
 \code{red}, \code{green}, \code{blue}, and \code{alpha} return the values for
-those components in RGBA space
+those components in RGBA space.
 }
 \examples{
 # Get a color's blue-ness

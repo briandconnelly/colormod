@@ -4,7 +4,7 @@
 \alias{adjust_rgb}
 \title{Adjust a color's RGB components}
 \usage{
-adjust_rgb(col, r, g, b, a, mode = "relative")
+adjust_rgb(col, r = NULL, g = NULL, b = NULL, mode = "relative")
 }
 \arguments{
 \item{col}{Vector containing any of the three kinds of \R color
@@ -15,13 +15,11 @@ specifications: \enumerate{
     \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
 }}
 
-\item{r}{The adjustment in hue [-1,1]}
+\item{r}{The adjustment in hue [-1,1] (default: \code{NULL})}
 
-\item{g}{The adjustment in saturation [-1,1]}
+\item{g}{The adjustment in saturation [-1,1] (default: \code{NULL})}
 
-\item{b}{The adjustment in brightness [-1,1]}
-
-\item{a}{The adjustment in alpha [-1,1]}
+\item{b}{The adjustment in brightness [-1,1] (default: \code{NULL})}
 
 \item{mode}{Whether the adjustments set the value directly
 ("\code{absolute}") or are added to the current value ("\code{relative}",
@@ -31,19 +29,19 @@ default).}
 The adjusted color(s) as hexadecimal strings
 }
 \description{
-These functions adjust a color's red, green, blue, and alpha
-components
+These functions adjust a color's red, green, and blue components
 
-\code{adjust_rgb} adjusts red, green, blue, and alpha either
+\code{adjust_rgb} adjusts red, green, and blue, either
 by replacing the current value (\code{mode="absolute"}) or adding to it
 (\code{mode="relative"}, the default).
 }
 \examples{
-# TODO
+# Add red to purple
+adjust_rgb("purple", r = 0.2)
 
 }
 \seealso{
 \code{\link{red}}, \code{\link{green}}, \code{\link{blue}}, and
-\code{\link{alpha}} to these component values
+\code{\link{alpha}} to get RGB component values
 }
 

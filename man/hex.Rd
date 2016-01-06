@@ -10,10 +10,12 @@ hex(col)
 \item{col}{Vector containing any of the three kinds of \R color
 specifications: \enumerate{
     \item a color name (see {\link[grDevices]{colors}})
-    \item a hexadecimal string of the form "\code{#rrggbb}" (see
-    \code{\link[grDevices]{rgb}})
+    \item a hexadecimal string of the form "\code{#rrggbb}" or
+    "\code{#rrggbbaa}"(see \code{\link[grDevices]{rgb}})
     \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
 }}
+
+\item{alpha}{Whether or not to include alpha channel values in the result.}
 }
 \value{
 The color(s) as hexadecimal strings
@@ -22,7 +24,7 @@ The color(s) as hexadecimal strings
 Get a hex string representation of colors
 }
 \examples{
-hex("orange")
+hex("orange", alpha = FALSE)
 
 }
 

@@ -15,5 +15,5 @@
 complement <- function(col) {
     x <- col2hsv(col)
     x["h",] <- (x["h",] + 0.5) %% 1
-    hsv2col(x)
+    hsv2hex(x)
 }

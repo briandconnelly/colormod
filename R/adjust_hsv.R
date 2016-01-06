@@ -1,4 +1,4 @@
-# TODO: hsv() uses h, s, v, not H, S, V
+# TODO hue adjustments should wrap
 #' Adjust a color's HSV components
 #' 
 #' @description These functions adjust a color's hue, saturation, and brightness
@@ -9,9 +9,9 @@
 #' (\code{mode="relative"}, the default).
 #'
 #' @inheritParams col2hsv
-#' @param H The adjustment in hue [-1,1]
-#' @param S The adjustment in saturation [-1,1]
-#' @param V The adjustment in brightness [-1,1]
+#' @param h The adjustment in hue [-1,1] (default: no adjustment)
+#' @param s The adjustment in saturation [-1,1] (default: no adjustment)
+#' @param v The adjustment in brightness [-1,1] (default: no adjustment)
 #' @param mode Whether the adjustments set the value directly
 #' ("\code{absolute}") or are added to the current value ("\code{relative}",
 #' default).
@@ -24,29 +24,29 @@
 #'
 #' @examples
 #' # Decrease saturation of orange by 0.1
-#' adjust_hsv(color = "orange", S = -0.1)
+#' adjust_hsv(color = "orange", s = -0.1)
 #'
-adjust_hsv <- function(col, H = 0, S = 0, V = 0, mode = "relative") {
-    assertthat::assert_that(is.numeric(H), H >= -1, H <= 1)
-    assertthat::assert_that(is.numeric(S), S >= -1, S <= 1)
-    assertthat::assert_that(is.numeric(V), V >= -1, V <= 1)
+adjust_hsv <- function(col, h = NULL, s = NULL, v = NULL, mode = "relative") {
+    if (!is.null(h)) assertthat::assert_that(is.numeric(h), h >= -1, h <= 1)
+    if (!is.null(s)) assertthat::assert_that(is.numeric(s), s >= -1, s <= 1)
+    if (!is.null(v)) assertthat::assert_that(is.numeric(v), v >= -1, v <= 1)
     assertthat::assert_that(tolower(mode) %in% c("relative", "absolute"))
 
     x <- col2hsv(col)
-    
+
     if (tolower(mode) == "relative") {
-        x["h",] <- clamp(x["h",] + H, 0, 1)
-        #x["h",] <- (x["h",] + 0.5) %% 1
-        x["s",] <- clamp(x["s",] + S, 0, 1)
-        x["v",] <- clamp(x["v",] + V, 0, 1)
-        hsv2col(x)
+        if (!is.null(h)) x["h",] <- clamp(x["h",] + h, 0, 1)
+        #if (!is.null(h)) x["h",] <- (x["h",] + 0.5) %% 1
+        if (!is.null(s)) x["s",] <- clamp(x["s",] + s, 0, 1)
+        if (!is.null(v)) x["v",] <- clamp(x["v",] + v, 0, 1)
+        hsv2hex(x)
     }
     else if (tolower(mode) == "absolute") {
-        x["h",] <- clamp(H, 0, 1)
-        #x["h",] <- (x["h",] + 0.5) %% 1
-        x["s",] <- clamp(S, 0, 1)
-        x["v",] <- clamp(V, 0, 1)
-        hsv2col(x)
+        if (!is.null(h)) x["h",] <- clamp(h, 0, 1)
+        #if (!is.null(h)) x["h",] <- (x["h",] + 0.5) %% 1
+        if (!is.null(s)) x["s",] <- clamp(s, 0, 1)
+        if (!is.null(v)) x["v",] <- clamp(v, 0, 1)
+        hsv2hex(x)
     }
 }
 
@@ -57,14 +57,14 @@ adjust_hsv <- function(col, H = 0, S = 0, V = 0, mode = "relative") {
 #' @rdname adjust_hsv
 #' @export
 saturate <- function(col, amount) {
-    adjust_hsv(col = col, S = amount, mode = "relative")
+    adjust_hsv(col = col, s = amount, mode = "relative")
 }
 
 
 #' @rdname adjust_hsv
 #' @export
 desaturate <- function(col, amount) {
-    adjust_hsv(col = col, S = -1 * amount, mode = "relative")
+    adjust_hsv(col = col, s = -1 * amount, mode = "relative")
 }
 
 
@@ -74,7 +74,7 @@ desaturate <- function(col, amount) {
 #' @aliases grayscale                                                           
 #' @export                                                                      
 greyscale <- function(col, amount) {
-    adjust_hsv(col = col, S = 0, mode = "absolute")          
+    adjust_hsv(col = col, s = 0, mode = "absolute")
 }
 
 #' @export                                                                      
@@ -85,10 +85,10 @@ grayscale <- greyscale
 #' brightness by the given amount, respectively
 #' @rdname adjust_hsv                                                           
 #' @export                                                                      
-brighten <- function(col, amount) adjust_hsv(col = col, V = amount,
-                                             mode = "relative")       
+brighten <- function(col, amount) adjust_hsv(col = col, v = amount,
+                                             mode = "relative")
 
 #' @rdname adjust_hsv                                                           
 #' @export                                                                      
-darken <- function(col, amount) adjust_hsv(col = color, V = -1 * amount,
+darken <- function(col, amount) adjust_hsv(col = color, v = -1 * amount,
                                            mode = "relative")

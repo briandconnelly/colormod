@@ -10,7 +10,7 @@
 \alias{saturate}
 \title{Adjust a color's HSV components}
 \usage{
-adjust_hsv(col, H = 0, S = 0, V = 0, mode = "relative")
+adjust_hsv(col, h = NULL, s = NULL, v = NULL, mode = "relative")
 
 saturate(col, amount)
 
@@ -31,11 +31,11 @@ specifications: \enumerate{
     \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
 }}
 
-\item{H}{The adjustment in hue [-1,1]}
+\item{h}{The adjustment in hue [-1,1] (default: no adjustment)}
 
-\item{S}{The adjustment in saturation [-1,1]}
+\item{s}{The adjustment in saturation [-1,1] (default: no adjustment)}
 
-\item{V}{The adjustment in brightness [-1,1]}
+\item{v}{The adjustment in brightness [-1,1] (default: no adjustment)}
 
 \item{mode}{Whether the adjustments set the value directly
 ("\code{absolute}") or are added to the current value ("\code{relative}",
@@ -65,7 +65,7 @@ brightness by the given amount, respectively
 }
 \examples{
 # Decrease saturation of orange by 0.1
-adjust_hsv(color = "orange", S = -0.1)
+adjust_hsv(color = "orange", s = -0.1)
 
 }
 \seealso{

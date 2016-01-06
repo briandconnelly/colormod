@@ -4,27 +4,30 @@
 \alias{rgb2hex}
 \title{RGB to Hex Color Conversion}
 \usage{
-rgb2hex(col, alpha = FALSE)
+rgb2hex(col, maxColorValue = 255)
 }
 \arguments{
-\item{col}{Vector containing any of the three kinds of \R color
-specifications: \enumerate{
-    \item a color name (see {\link[grDevices]{colors}})
-    \item a hexadecimal string of the form "\code{#rrggbb}" (see
-    \code{\link[grDevices]{rgb}})
-    \item a positive integer \code{i} meaning \code{\link[grDevices]{palette}()[i]}
-}}
+\item{col}{An integer matrix with three ("red", "green", and "blue") or four
+("alpha") rows and one column for each color in \code{col}. Values are in
+[0,M], where M is \code{maxColorValue}.}
 
-\item{alpha}{TODO}
+\item{maxColorValue}{number giving the maximum value for each of the color
+components in \code{col} (default: \code{255})}
 }
 \value{
-TODO
+The colors as hexadecimal strings
 }
 \description{
-TODO
+Convert matrices containing red, green, blue, and alpha
+(optional) values into hex color strings.
 }
 \examples{
-TODO
+# Get the hex color code for "orange"
+rgb2hex(col2rgb("orange"))
 
+}
+\seealso{
+\code{\link[grDevices]{col2rgb}} for translating \R colors to RGB
+vectors
 }
 
