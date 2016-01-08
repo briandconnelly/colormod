@@ -39,13 +39,12 @@ adjust_rgb <- function(col, r = NULL, g = NULL, b = NULL, mode = "relative") {
                                               0, 255)
         if (!is.null(b)) x["blue",] <- clamp(x["blue",] + round(b * 255),
                                              0, 255)
-
-        rgb2hex(x)
     }
     else if (tolower(mode) == "absolute") {
         if (!is.null(r)) x["red",] <- clamp(round(r * 255), 0, 255)
         if (!is.null(g)) x["green",] <- clamp(round(g * 255), 0, 255)
         if (!is.null(b)) x["blue",] <- clamp(round(b * 255), 0, 255)
-        rgb2hex(x)
     }
+
+    rgb2hex(x)
 }

@@ -39,15 +39,15 @@ adjust_hsv <- function(col, h = NULL, s = NULL, v = NULL, mode = "relative") {
         #if (!is.null(h)) x["h",] <- (x["h",] + 0.5) %% 1
         if (!is.null(s)) x["s",] <- clamp(x["s",] + s, 0, 1)
         if (!is.null(v)) x["v",] <- clamp(x["v",] + v, 0, 1)
-        hsv2hex(x)
     }
     else if (tolower(mode) == "absolute") {
         if (!is.null(h)) x["h",] <- clamp(h, 0, 1)
         #if (!is.null(h)) x["h",] <- (x["h",] + 0.5) %% 1
         if (!is.null(s)) x["s",] <- clamp(s, 0, 1)
         if (!is.null(v)) x["v",] <- clamp(v, 0, 1)
-        hsv2hex(x)
     }
+
+    hsv2hex(x)
 }
 
 
@@ -90,5 +90,5 @@ brighten <- function(col, amount) adjust_hsv(col = col, v = amount,
 
 #' @rdname adjust_hsv                                                           
 #' @export                                                                      
-darken <- function(col, amount) adjust_hsv(col = color, v = -1 * amount,
+darken <- function(col, amount) adjust_hsv(col = col, v = -1 * amount,
                                            mode = "relative")
