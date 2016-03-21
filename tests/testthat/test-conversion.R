@@ -28,10 +28,3 @@ test_that("Named colors convert properly", {
     expect_equal(hex("lightsalmon3"), "#CD8162")
     expect_equal(hex(cnamed), cnamedhex)
 })
-
-# TODO: update these
-test_that("Colors convert properly to HSV", {
-    expect_equal(hex(coordinates("#FFFFFF", "HSV")), hex(HSV(0,0,1)))
-    expect_equal(hex(coordinates("#000000", "HSV")), hex(HSV(0,0,0)))
-    expect_equal(hex(coordinates("#408080", "HSV")), hex(HSV(180, 0.5, 0.5)))
-})

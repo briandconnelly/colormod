@@ -21,7 +21,9 @@
 rgb2hex <- function(col, maxColorValue = 255) {
     assertthat::assert_that(maxColorValue > 0)
 
-    if (maxColorValue != 255) stop("Sorry, maxColorValue != 255 is not yet supported.")
+    if (maxColorValue != 255) {
+        stop("Sorry, maxColorValue != 255 is not yet supported.")
+    }
 
     # TODO: use maxColorValue
     if ("alpha" %in% row.names(col)) {

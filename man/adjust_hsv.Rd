@@ -65,7 +65,7 @@ brightness by the given amount, respectively
 }
 \examples{
 # Decrease saturation of orange by 0.1
-adjust_hsv(color = "orange", s = -0.1)
+adjust_hsv(col = "orange", s = -0.1)
 
 }
 \seealso{

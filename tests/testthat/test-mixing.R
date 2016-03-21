@@ -4,7 +4,7 @@ test_that("mix works properly", {
     expect_equal(mix("#FF0000", "#0000FF", 0), "#FF0000")
     expect_equal(mix("#FF0000", "#0000FF", 1), "#0000FF")
     expect_equal(mix("#FF0000", "#0000FF", 0.5), "#800080")
-    expect_equal(mix(c('white', 'white'), c('black', 'black')),
+    expect_equal(mix(c("white", "white"), c("black", "black")),
                  c("#808080", "#808080"))
 })
 

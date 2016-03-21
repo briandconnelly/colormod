@@ -16,9 +16,9 @@
 transparentize <- function(col, amount, mode = "relative") {
     assertthat::assert_that(is.numeric(amount), amount >= -1, amount <= 1)
     assertthat::assert_that(tolower(mode) %in% c("relative", "absolute"))
-    
+
     x <- col2rgb(col = col, alpha = TRUE)
-    
+
     if (tolower(mode) == "relative") {
         x["alpha",] <- clamp(x["alpha",] - round(amount * 255), 0, 255)
     }

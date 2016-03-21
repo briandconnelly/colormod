@@ -11,5 +11,8 @@
 #' @examples
 #' invert('#FF00FF')
 #'
-invert <- function(col) rgb2hex(255 - col2rgb(col))
-# TODO: what to do about alpha? Don't want to invert, but probably also don't want to remove it.
+invert <- function(col) {
+    rgb2hex(255 - col2rgb(col))
+    # TODO: what to do about alpha? Don't want to invert, but probably also
+    #       don't want to remove it.
+}

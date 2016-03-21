@@ -16,5 +16,3 @@ test_that("RGB adjustments work properly", {
     expect_equal(adjust_rgb(col = "#000000", r = 0, g = 0, b = 0), "#000000")
     expect_equal(adjust_rgb(col = "#FFFFFF", r = 1, g = 1, b = 1), "#FFFFFF")
 })
-
-

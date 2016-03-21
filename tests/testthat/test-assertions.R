@@ -28,4 +28,3 @@ test_that("is.color works with both hex and RGB strings", {
     expect_false(is.color("catpukeorange"))
     expect_false(is.color("#fg0011"))
 })
-

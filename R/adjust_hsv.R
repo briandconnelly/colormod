@@ -24,7 +24,7 @@
 #'
 #' @examples
 #' # Decrease saturation of orange by 0.1
-#' adjust_hsv(color = "orange", s = -0.1)
+#' adjust_hsv(col = "orange", s = -0.1)
 #'
 adjust_hsv <- function(col, h = NULL, s = NULL, v = NULL, mode = "relative") {
     if (!is.null(h)) assertthat::assert_that(is.numeric(h), h >= -1, h <= 1)
@@ -85,10 +85,12 @@ grayscale <- greyscale
 #' brightness by the given amount, respectively
 #' @rdname adjust_hsv                                                           
 #' @export                                                                      
-brighten <- function(col, amount) adjust_hsv(col = col, v = amount,
-                                             mode = "relative")
+brighten <- function(col, amount) {
+    adjust_hsv(col = col, v = amount, mode = "relative")
+}
 
 #' @rdname adjust_hsv                                                           
 #' @export                                                                      
-darken <- function(col, amount) adjust_hsv(col = col, v = -1 * amount,
-                                           mode = "relative")
+darken <- function(col, amount) {
+    adjust_hsv(col = col, v = -1 * amount, mode = "relative")
+}

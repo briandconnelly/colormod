@@ -13,14 +13,14 @@ is.hex.color(x, allow_alpha = TRUE)
 is.named.color(x)
 }
 \arguments{
-\item{allow_alpha}{Whether or not alpha parameters are allowed in hex color
-strings (default: \code{TRUE})}
-
-\item{col}{Vector containing either: \enumerate{
+\item{x}{Vector containing either: \enumerate{
     \item a color name (see {\code{\link[grDevices]{colors}}})
     \item a hexadecimal string of the form "\code{#rrggbb}" or
     "\code{#rrggbbaa}"(see \code{\link[grDevices]{rgb}})
 }}
+
+\item{allow_alpha}{Whether or not alpha parameters are allowed in hex color
+strings (default: \code{TRUE})}
 }
 \value{
 Boolean indicating whether or not the given input is a valid color

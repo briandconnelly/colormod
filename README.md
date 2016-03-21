@@ -5,8 +5,6 @@
 [![Coverage Status](https://img.shields.io/codecov/c/github/briandconnelly/colormod/master.svg)](https://codecov.io/github/briandconnelly/colormod?branch=master)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/colormod)](http://cran.r-project.org/package=colormod)
 
-**Doing some serious re-arranging right now, so I wouldn't recommend trying this package just yet.**
-
 Colormod makes manipulating colors easy.
 
 Inspired by tools like [Sass](http://sass-lang.com) and [Less](http://lesscss.org), colormod provides wrappers using [colorspace](http://cran.r-project.org/web/packages/colorspace/index.html) to convert, extract, and manipulate individual properties of colors. For portability, colormod primarily works with and produces colors as hexadecimal strings (although R's named colors are also supported).
@@ -24,8 +22,9 @@ greyscale("#8c613f")
 ```
 
 
-## Installing 
+## Installation 
 This package is not quite ready to be available on [CRAN](http://cran.r-project.org), but you can use [devtools](http://cran.r-project.org/web/packages/devtools/index.html) to install the current development version:
 
+    if(!require("devtools")) install.packages("devtools")
     devtools::install_github("briandconnelly/colormod")
 

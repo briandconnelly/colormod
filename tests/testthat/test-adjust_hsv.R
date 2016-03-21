@@ -5,9 +5,8 @@ medpurple3 <- "#8968CD"
 # TODO test "Absolute" and "Relative"
 test_that("HSV adjustments work properly", {
     expect_equal(adjust_hsv(medpurple3), medpurple3)
-    expect_equal(adjust_hsv("#FFFFFF", Hamount = 200), "#FFFFFF")
-    expect_equal(adjust_hsv(col = medpurple3, Hamount = -20, Samount = 0.04,
-                            Vamount = -0.1),
+    expect_equal(adjust_hsv("#FFFFFF", h = 200), "#FFFFFF")
+    expect_equal(adjust_hsv(col = medpurple3, h = -20, s = 0.04, v = -0.1),
                  "#5455B4")
 })
 

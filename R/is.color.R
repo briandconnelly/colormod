@@ -4,7 +4,7 @@
 #' color
 #' @rdname is.color
 #'
-#' @param col Vector containing either: \enumerate{
+#' @param x Vector containing either: \enumerate{
 #'     \item a color name (see {\code{\link[grDevices]{colors}}})
 #'     \item a hexadecimal string of the form "\code{#rrggbb}" or
 #'     "\code{#rrggbbaa}"(see \code{\link[grDevices]{rgb}})
